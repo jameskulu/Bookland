@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'Accounts.apps.AccountsConfig',
     'Users.apps.UsersConfig',
     'Books.apps.BooksConfig',
+    'Contact.apps.ContactConfig',
 
 
     # Installed apps
@@ -145,3 +146,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('email')
 EMAIL_HOST_PASSWORD = os.environ.get('password')
 EMAIL_PORT = 587
+
+# Mailchimp (Email Subscription)
+MAILCHIMP_API_KEY = '3246cc2598dc34edde277dfef895acad-us18'
+MAILCHIMP_DATA_CENTER = 'us18'
+MAILCHIMP_EMAIL_AUDIENCE_ID = 'ccd95477f0'

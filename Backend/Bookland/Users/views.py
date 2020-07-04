@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
+from Books.models import Product
 
 
 @login_required
@@ -57,3 +58,14 @@ def change_password(request):
         'form': form,
     }
     return render(request, 'Users/change_password.html', context)
+
+
+@login_required()
+def favrioute_list(request):
+    products = Product.objects.filter(favrioute__id=request.user.id)
+
+    context = {
+        'products': products,
+    }
+
+    return render(request, 'Users/wishlist.html', context)

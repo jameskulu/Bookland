@@ -1,13 +1,19 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, SubCategory, Product
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from Contact.forms import SubscribeForm
 
 
 def index(request):
     products = Product.objects.order_by('-published_date')[:10]
     categories = Category.objects.all()[0:9]
+    form = SubscribeForm()
     context = {
         'products': products,
         'categories': categories,
+        'form': form,
     }
     return render(request, 'Books/index.html', context)
 
@@ -15,12 +21,12 @@ def index(request):
 def product_detail(request, pk):
     products = get_object_or_404(Product, pk=pk)
     # products = Product.objects.get(pk=pk)
-    # is_favrioute = False
-    # if products.favrioute.filter(id=request.user.id).exists():
-    #     is_favrioute = True
+    is_favrioute = False
+    if products.favrioute.filter(id=request.user.id).exists():
+        is_favrioute = True
     context = {
         'products': products,
-        # 'is_favrioute': is_favrioute,
+        'is_favrioute': is_favrioute,
     }
     return render(request, 'Books/product_detail.html', context)
 
@@ -50,4 +56,40 @@ def categoryView(request, slug):
     if is_valid_queryparam(maxvalue):
         categories = categories.filter(price__lt=maxvalue)
 
-    return render(request, 'Product/category.html', {'categories': categories, 'slug': slug, 'subcategories': subcategories, })
+    return render(request, 'Books/category.html', {'categories': categories, 'slug': slug, 'subcategories': subcategories, })
+
+
+@login_required()
+def wishlist(request, pk):
+    products = get_object_or_404(Product, pk=pk)
+    user = request.user
+
+    if products.favrioute.filter(id=user.id).exists():
+        products.favrioute.remove(user)
+        messages.success(request, 'Removed from wishlist')
+    else:
+        products.favrioute.add(user)
+        messages.success(request, 'Added to wishlist')
+    return redirect('product-detail', pk=products.id)
+
+
+def search(request):
+    try:
+        q = request.GET.get('q')
+    except:
+        q = None
+    if is_valid_queryparam(q):
+        queries = Product.objects.filter(
+            Q(title__icontains=q) | Q(description__icontains=q) | Q(author__icontains=q))
+        template_name = 'Books/main_search.html'
+        context = {
+            'queries': queries,
+            'q': q,
+        }
+    else:
+        return redirect('home')
+    return render(request, template_name, context)
+
+
+def error_404_view(request, exception):
+    return render(request, 'Books/404.html')

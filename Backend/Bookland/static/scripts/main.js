@@ -46,7 +46,11 @@ var swiper = new Swiper('.recently-viewed', {
 
 // -------- SLideshow Time Interval -------------
 
-setInterval(function () { document.getElementsByClassName('swiper-button-next')[0].click(); }, 7000);
+
+
+setInterval(function () { document.getElementsByClassName('swiper-button-next')[0].click(); }, 5000);
+
+
 
 
 
@@ -78,8 +82,6 @@ document.querySelector('.nav-bar-icon')
 
 // ---------------------------- Dark Mode -------------------------------
 
-
-DJANGO_STATIC_URL = '{{ STATIC_URL }}';
 
 let checkbox = document.querySelector('input[name=theme]');
 let checked = JSON.parse(localStorage.getItem('checkbox1zaal1'));
@@ -115,28 +117,15 @@ document.querySelector('.nav-bar-icon')
 
 
 
-var slider = document.getElementById("myrange");
-var output = document.getElementById("value");
-
-// output.innerHTML = slider.value;
-// slider.oninput = function () {
-//   output.innerHTML = slider.value;
-// };
-
-
 // ------ Message Close ----
 
 let messageCloseBtn = document.querySelector('#message-close-btn')
 let messageDiv = document.querySelector('#success');
 
-hideDiv()
+messageCloseBtn.addEventListener("click", function () {
+  messageDiv.style.display = "none";
+})
 
-function hideDiv() {
-  messageCloseBtn.addEventListener("click", function () {
-    messageDiv.style.display = "none";
-  })
-}
-
-setInterval(() => {
-  messageDiv.style.display = 'none';
+setInterval(function () {
+  messageDiv.style.display = 'none'
 }, 7000)

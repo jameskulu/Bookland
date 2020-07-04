@@ -8,8 +8,11 @@ urlpatterns = [
     path('accounts/', include('Accounts.urls')),
     path('', include('Books.urls')),
     path('users/', include('Users.urls')),
+    path('', include('Contact.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
+handler404 = 'Books.views.error_404_view'

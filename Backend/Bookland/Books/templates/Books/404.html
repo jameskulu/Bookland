@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - 404 Page {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>Page Not Found</h1>
+  <a style="text-decoration: none;" href="{% url 'home' %}">
+    <span><i class="fal fa-arrow-left"></i> &nbsp; BACK TO HOMEPAGE</span>
+  </a>
+</div>
+
+{% endblock %}

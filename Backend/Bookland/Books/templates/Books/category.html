@@ -4,10 +4,22 @@
 
 {% block content %}
 
+{% if not subcategories %}
+
 <div class="details">
-    <h1>Category</h1>
+    <h1>Page not found</h1>
+    <a style="text-decoration: none;" href="{% url 'home' %}">
+        <span><i class="fal fa-arrow-left"></i> &nbsp; BACK TO HOMEPAGE</span>
+    </a>
+</div>
+
+{% else %}
+
+<div class="details">
+    <h1>{{ slug }}</h1>
     <p>Home - Category</p>
 </div>
+
 
 <section>
     <div class="container">
@@ -16,7 +28,7 @@
                 <div class="sidebar">
                     <div class="head">Browse Categories</div>
                     <div class="cate-content">
-                        <form>
+                        <form method='GET'>
                             <ul>
                                 {% for subcategory in subcategories  %}
                                 <li class="cate-list">
@@ -26,188 +38,83 @@
                                 </li>
                                 {% endfor %}
                             </ul>
-                        </form>
+
                     </div>
                 </div>
                 <div class="price-filter">
                     <div class="rangeslider">
-                        <input type="range" min="100" max="3000" value="100" id="myrange" class="slider">
-                        <p>Price : $<span id="value"></span></p>
+                        <!-- <input name="minvalue" type="range" min="100" max="3000" value="100" id="myrange"
+                            class="slider">
+                        <p>Price : $<span id="value"></span></p> -->
+
+                        <span class="labelprice" for="">Min Price</span><br>
+                        <input type="number" name="minvalue" id=""><br>
+                        <span class="labelprice" for="">Max Price</span><br>
+                        <input type="number" name="maxvalue">
+
                     </div>
+
+
                     <button class="filterbtn">Filter</button>
                 </div>
+                </form>
             </div>
 
 
             <div class="product">
-                <div class="searchbar">
-                    <div class="srch">
-                        <input type="text" placeholder="Search">
-                        <div class="srchbtn">
-                            <button>
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
+                <form method="GET">
+                    <div class="searchbar">
+                        <div class="srch">
+
+
+                            <input name='name' type="text" placeholder="Search">
+                            <div class="srchbtn">
+                                <button>
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+
+                            </div>
+
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="product-area">
+                    {% if not categories %}
+
+                    <h1 style="text-align: center;">No books found</h1>
+
+                    {% else %}
                     <div class="Area">
+                        {% for cat in categories %}
                         <div class="product-detail">
+
+
                             <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
+                                <div class="single-latest-product-hover">
+                                    <a href="{% url 'product-detail' cat.id %}">View Product</a></div>
                                 <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
+                                    <img class="card-img" src="{{ cat.image.url }}" alt="">
 
                                 </div>
                                 <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
+                                    <p>{{ cat.author }}</p>
+                                    <a style="text-decoration: none;" href="{% url 'product-detail' cat.id %}">
+                                        <h4 class="card-product__title">{{ cat.title }}</h4>
+                                    </a>
+                                    <p class="card-product__price">Rs. {{ cat.price }}.00</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
 
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
                         </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="card ">
-                                <div class="single-latest-product-hover"><a href="product-detail.html">View
-                                        Product</a></div>
-                                <div class="card_img">
-                                    <img class="card-img" src="images/book1.jpg" alt="">
-
-                                </div>
-                                <div class="card-body">
-                                    <p>Accessories</p>
-                                    <h4 class="card-product__title">Quartz Belt Watch </h4>
-                                    <p class="card-product__price">$150.00</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 
 
 {% endblock %}

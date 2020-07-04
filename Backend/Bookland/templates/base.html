@@ -48,7 +48,7 @@
               </ul>
             </li>
             <li class="nav-link-list"><a href="">Used Books</a></li>
-            <li class="nav-link-list"><a href="">Contact</a></li>
+            <li class="nav-link-list"><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
         <div class="search-cart">
@@ -65,7 +65,7 @@
             <a href="" onclick="return false;">Hi, {{user.first_name}}&nbsp;<i class="fas fa-angle-down"></i></a>
             <ul class="dropdown-link2">
               <li><a href="{% url 'manage-profile' %}">Manage Account</a></li>
-              <li><a href="">My Wishlist</a></li>
+              <li><a href="{% url 'favrioute-list' %}">My Wishlist</a></li>
               <hr style="width: 120px;">
               <li><a href="">Post Your Book</a></li>
               <li><a href="">My Listed Items</a></li>
@@ -82,8 +82,8 @@
         </div>
       </div>
       <div class="home-search">
-        <form action="main-search.html">
-          <input type="text" placeholder="Search for books..">
+        <form action="{% url 'search' %}" method="GET">
+          <input type="text" required placeholder="Search for books.." name="q">
           <button type="submit"> <i class="fal fa-search"></i></button>
         </form>
       </div>

@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Bookland - Best Online Bookshop In Nepal {% endblock %}
 
+{% load widget_tweaks %}
 {% block content %}
 
 <!-- Slideshow -->
@@ -51,7 +52,7 @@
   <div class="inner-categories">
 
     {% for category in categories %}
-    <a href="">
+    <a href="{% url 'category' category %}">
       <div class="single-category">
         <img src="{{ category.image.url }}" alt="{{ category.name }}">
         <h3>{{ category.name }}</h3>
@@ -76,7 +77,7 @@
       <div class="product-information">
         <p>{{ product.author }}</p>
         <h3><a href="">{{ product.title }}</a></h3>
-        <span>Rs. {{ product.price }}</span>
+        <span>Rs. {{ product.price }}.00</span>
       </div>
     </div>
     {% endfor %}
@@ -190,8 +191,10 @@
   <h1>GET UPDATES FROM BOOKLAND</h1>
   <p>Subscribe and stay in touch with our regular updates and newsletter.</p>
   <div class="email-subscription-form">
-    <form action="">
-      <input type="text" placeholder="Enter your email">
+    <form action="{% url 'subscribe' %}" method="POST">
+      {% csrf_token %}
+      <!-- <input type="text" placeholder="Enter your email"> -->
+      {% render_field form.email class="email-subscription-textbox"  placeholder="Enter your email.." %}
       <button type="submit">Subscribe Now</button>
     </form>
   </div>

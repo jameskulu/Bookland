@@ -22,7 +22,11 @@
         <span>Quantity:</span>&nbsp;<input type="number" min="1" max="10" value="1">
         <button class="addtocart"> Add to cart </button>
       </div>
-      <i class="far fa-heart"></i>
+      {% if is_favrioute == True %}
+      <a href="{% url 'wishlist' products.id %}"><i class="fas fa-heart"></i></a>
+      {% else %}
+      <a href="{% url 'wishlist' products.id %}"><i class="far fa-heart"></i></a>
+      {% endif %}
 
     </div>
 

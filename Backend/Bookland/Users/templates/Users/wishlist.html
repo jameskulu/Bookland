@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - My Wishlist {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>My Wishlist</h1>
+  <p>Home - My Wishlist</p>
+</div>
+
+<div class="my-wishlist">
+  <div class="main1">
+
+    {% if not products %}
+    <div class="wishlist-empty">
+      <i class="far fa-heart"></i>
+      <p>There are no favorites yet.</p>
+      <span>Add your favorites to wishlist and they will show here.</span>
+      <a href="{% url 'home' %}"><button>Continue Shopping</button></a>
+    </div>
+    {% else %}
+    <table class="table3">
+      {% for product in products %}
+      <tr>
+        <td class="wishlist-flex">
+          <a href="{% url 'product-detail' product.id %}">
+            <img src="{{ product.image.url }}">
+          </a>
+          <div class="image-desc">
+            <a href="{% url 'product-detail' product.id %}">
+              <h3>{{ product.title }}</h3>
+            </a>
+            <p>{{ product.author }}</p>
+          </div>
+        </td>
+        <td class="table-price">Rs. {{ product.price }}.00</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}

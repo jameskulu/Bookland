@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookland - Contact Us{% endblock %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<div class="details">
+    <h1>Contact Us</h1>
+    <p>Home - Contact Us</p>
+</div>
+
+
+<div class="outer-contact-cover">
+    <div class="cover">
+        <div class="wrapper">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3532.1513985607185!2d85.3165416!3d27.7126114!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19016c9d9fcb%3A0xd2291eee6917d60a!2sDurbar%20Marg%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1593017500918!5m2!1sen!2snp"
+                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+
+        <section class="contact-information">
+            <div class="row">
+                <div class="contactinfo">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <span><i class="fa fa-home" aria-hidden="true"></i></span>
+                                <span>
+                                    <h3>Durbarmarg, Kathmandu</h3>
+                                </span>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                <span>
+                                    <h3 style="text-transform: lowercase;">bookland@hotmail.com</h3>
+                                </span>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                <span>
+                                    <h3>071-561338</h3>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="contactform">
+                    <form method='POST'>
+                        {% csrf_token %}
+                        <div class="outer-form-group">
+                            <div class="form-group">
+                                <input type="text" id="fname" name="fullname" placeholder="Enter Name" required>
+                                <input type="email" id="mail" name="email" placeholder="Enter Email" required>
+                                <input type="text " id="sub" name="subject" placeholder="Subject " required>
+                            </div>
+                            <textarea required class="form-control" id="subject " name="message"
+                                placeholder=" Enter Message  "></textarea>
+
+                        </div>
+
+                        <button>Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

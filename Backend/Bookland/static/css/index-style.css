@@ -883,7 +883,7 @@ main{
   margin-bottom: 50px;
   color:var(--white-color);
 }
-.email-subscription .email-subscription-form input[type='text']{
+.email-subscription .email-subscription-form .email-subscription-textbox{
   width: 310px;
   padding: 16px 20px;
   border-radius: 30px;
@@ -1132,7 +1132,7 @@ main{
   height: 420px;
   overflow: hidden;
 }
-.outer-contact-cover section {
+.outer-contact-cover .contact-information {
   display: flex;
   flex-basis: 100%;
   width: 1140px;
@@ -1145,7 +1145,7 @@ main{
   margin-right: -15px;
   margin-left: -15px;
 }
-.outer-contact-cover form {
+.outer-contact-cover .outer-form-group {
   display: flex;
   flex-direction: row;
 }
@@ -1170,7 +1170,7 @@ main{
 .outer-contact-cover .form-group input:focus {
   outline: none;
 }
-.outer-contact-cover form .form-control {
+.outer-contact-cover .outer-form-group .form-control {
   padding: 10px;
   font-family: sans-serif;
   margin-top: 45px;
@@ -1182,7 +1182,7 @@ main{
 .outer-contact-cover .form-control:focus {
   outline: none;
 }
-.outer-contact-cover form textarea{
+.outer-contact-cover .outer-form-group textarea{
   resize: none;
   color: var(--description-color);
 }
@@ -1210,7 +1210,7 @@ main{
   width: 260px;
   height: auto;
 }
-.outer-contact-cover section .contactinfo .info {
+.outer-contact-cover .contact-information .contactinfo .info {
   display: flex;
   flex-direction: column;
   margin-top: 15px;
@@ -1224,7 +1224,7 @@ main{
 }
 .outer-contact-cover .contactinfo .info li span:nth-child(1) {
   width: 30px;
-  color: rgb(56, 74, 235);
+  color: var(--main-color);
   font-size: 26px;
   margin: 10px;
 }
@@ -1256,7 +1256,7 @@ main{
       margin: 40px 0px 30px;
       overflow: hidden;
   }
-  .outer-contact-cover section {
+  .outer-contact-cover .contact-information {
       display: flex;
       flex-basis: 100%;
       width: 960px;
@@ -1268,20 +1268,20 @@ main{
       margin-right: -15px;
       margin-left: -15px;
   }
-  .outer-contact-cover form {
+  .outer-contact-cover .outer-form-group {
       display: flex;
       margin: 0px 20px 10px 20px;
   }
-  .outer-contact-cover form .form-group {
+  .outer-contact-cover .outer-form-group .form-group {
       padding: 10px;
       margin-top: 15px;
   }
-  .outer-contact-cover form .form-group input {
+  .outer-contact-cover .outer-form-group .form-group input {
       padding: 16px;
       max-width: 100%;
       width: 280px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       padding: 10px;
       font-family: sans-serif;
       margin: 25px 0px 35px 10px;
@@ -1338,7 +1338,7 @@ main{
       max-width: 750px;
       margin: auto;
   }
-  .outer-contact-cover section {
+  .outer-contact-cover .contact-information {
       display: flex;
       flex-basis: 100%;
       width: 720px;
@@ -1349,26 +1349,26 @@ main{
       margin-right: -15px;
       margin-left: -15px;
   }
-  .outer-contact-cover form {
+  .outer-contact-cover .outer-form-group {
       display: flex;
       flex-direction: column;
       margin: 20px 0 20px 20px;
   }
-  .outer-contact-cover form .form-group {
+  .outer-contact-cover .outer-form-group .form-group {
       padding: 0px;
       margin-top: 35px;
   }
-  .outer-contact-cover form .form-group input {
+  .outer-contact-cover .outer-form-group .form-group input {
       padding: 13px;
       max-width: 100%;
       width: 435px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       margin-top: 0px;
       border: 1px solid #ccc;
       margin-left: 20px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       padding: 10px;
       font-family: sans-serif;
       margin: 0px 0px;
@@ -1423,7 +1423,7 @@ main{
       margin: auto;
       overflow: hidden;
   }
-  .outer-contact-cover section {
+  .outer-contact-cover .contact-information {
       display: flex;
       flex-basis: 100%;
       width: 540px;
@@ -1438,26 +1438,26 @@ main{
       margin-right: -15px;
       margin-left: -15px;
   }
-  .outer-contact-cover form {
+  .outer-contact-cover .outer-form-group {
       display: flex;
       flex-direction: column;
       margin: 10px 15px;
   }
-  .outer-contact-cover form .form-group {
+  .outer-contact-cover .outer-form-group .form-group {
       padding: 0px;
       margin-top: 35px;
   }
-  .outer-contact-cover form .form-group input {
+  .outer-contact-cover .outer-form-group .form-group input {
       padding: 13px;
       max-width: 100%;
       width: 510px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       margin-top: 0px;
       border: 1px solid #ccc;
       margin-left: 20px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       padding: 10px;
       font-family: sans-serif;
       margin: 0px 0px;
@@ -1501,13 +1501,13 @@ main{
   .outer-contact-cover .map {
       display: none;
   }
-  .outer-contact-cover section {
+  .outer-contact-cover .contact-information {
       display: flex;
       width: 410px;
       padding-right: 15px;
       padding-left: 15px;
   }
-  .outer-contact-cover section .row {
+  .outer-contact-cover .contact-information .row {
       flex-basis: 100%;
       display: flex;
       flex-direction: column;
@@ -1539,20 +1539,20 @@ main{
       font-size: 15px;
       line-height: 1.467;
   }
-  .outer-contact-cover form {
+  .outer-contact-cover .outer-form-group {
       display: flex;
       flex-direction: column;
       margin: 0px 20px;
   }
-  .outer-contact-cover form .form-group {
+  .outer-contact-cover .outer-form-group .form-group {
       padding: 0px;
   }
-  .outer-contact-cover form .form-group input {
+  .outer-contact-cover .outer-form-group .form-group input {
       padding: 15px;
       margin: 10px px;
       width: 410px;
   }
-  .outer-contact-cover form .form-control {
+  .outer-contact-cover .outer-form-group .form-control {
       max-width: 100%;
       width: 410px;
       margin: 10px 0px;
@@ -1720,6 +1720,9 @@ main{
   align-items: flex-start;
   flex-direction: column;
   margin: auto;
+  color: var(--description-color);
+}
+.picture-details .details-info a{
   color: var(--description-color);
 }
 .details-info .price{
@@ -2504,6 +2507,7 @@ section {
   padding-right: 15px;
   padding-left: 15px;
   margin: 0;
+  height: 100%;
 }
 .sidebar {
   width: 100%;
@@ -2542,6 +2546,9 @@ section {
   margin-right: 10px;
   outline: none;
 }
+.price-filter{
+  height: 300px;
+}
 .price-filter .rangeslider {
   max-width: 285px;
   padding: 15px 20px;
@@ -2552,7 +2559,7 @@ section {
 }
 .price-filter {
   max-width: 285px;
-height: 80px;
+  height: 80px;
   margin-top: 9px;
   position: relative;
 }
@@ -2561,10 +2568,24 @@ height: 80px;
   margin: 20px 0 0 15px;
   color: var(--heading-color);
 }
+.rangeslider input{
+  /* height: 30px; */
+  outline: none;
+  margin-top: 10px;
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 5px 7px;
+  color: var(--description-color);
+  background: transparent;
+  border: 1px solid var(--description-color);
+}
+.rangeslider .labelprice{
+  color: var(--heading-color);
+}
 
 .price-filter .filterbtn{
-background-color: var(--main-color);
-width: 100%;
+  background-color: var(--main-color);
+  width: 100%;
   padding: 10px 25px;
   border-radius: 30px;
   outline: none;
@@ -2585,7 +2606,7 @@ width: 100%;
   color: #777;
   font-size: 1rem;
   position: absolute;
-  top: 38%;
+  top:40%;
   left: 71%;
 }
 .slider::before {
@@ -2593,9 +2614,11 @@ width: 100%;
   color: #777;
   font-size: 1rem;
   position: absolute;
-  top: 38%;
+  top: 40%;
   left: 12%;
 }
+
+
 #value {
   font-size: 18px;
   padding: 10px 5px;
@@ -3015,7 +3038,7 @@ width: 100%;
       min-height: 1px;
       padding-right: 15px;
       padding-left: 15px;
-      margin-top: 120px;
+      margin-top: 150px;
   }
   .searchbar {
       display: flex;
@@ -3746,6 +3769,30 @@ width: 100%;
 }
 .main1 .table3 tr td ul li{
 	list-style-type:none;
+}
+.main1 .wishlist-empty{
+  margin: auto;
+  width: 50%; 
+  height: 100px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  color: var(--heading-color);
+}
+.main1 .wishlist-empty .fa-heart{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.main1 .wishlist-empty button{
+  width: 200px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-bg-color);
+  margin-top: 30px;
+  cursor: pointer;
 }
 @media(max-width:1000px){
   .main1{

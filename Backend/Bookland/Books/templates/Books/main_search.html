@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Searched Results {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>Searched results for: {{ q }}</h1>
+</div>
+
+
+
+<div class="main-search-div">
+  <form action="{% url 'search' %}">
+    <div class="wrapper-search">
+
+      <input required name='q' type="text" class="input" placeholder="Search for books, author..">
+
+      <div class="searchbtn">
+        <button style="background: transparent; border:none;">
+          <i style="cursor: pointer;" class="fas fa-search"></i>
+        </button>
+      </div>
+
+
+    </div>
+  </form>
+
+  {% if not queries %}
+  <h1 style="text-align: center;margin-top: -10px;">Not Found</h1>
+  {% endif %}
+
+
+  <div class="latest-product">
+    <div class="inner-latest-product">
+
+      {% for query in queries %}
+      <div class="single-latest-product">
+        <img src="{{ query.image.url }}" alt="">
+        <div class="single-latest-product-hover"><a href="{% url 'product-detail' query.id %}">View Product</a></div>
+        <div class="product-information">
+          <p>{{ query.author }}</p>
+          <h3><a href="{% url 'product-detail' query.id %}">{{ query.title }}</a></h3>
+          <span>Rs. {{ query.price }}.00</span>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
