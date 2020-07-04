@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Detail Page {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>Product Details </h1>
+  <p>Home - Product Details</p>
+</div>
+
+<div class="product-detail-page">
+  <div class="picture-details">
+    <div class="picture-details-img"> <img src="{{ products.image.url }}" alt="{{ products.title }}"></div>
+    <div class="details-info">
+      <p>By {{ products.author }}</p>
+      <h1>{{ products.title }}</h1>
+      <p class="price">Rs. {{products.price}}.00 </p>
+      <p>Category : {{ products.subcategory.category.name }}</p>
+      <p>{{products.intro}}</p>
+      <div class="cart">
+        <span>Quantity:</span>&nbsp;<input type="number" min="1" max="10" value="1">
+        <button class="addtocart"> Add to cart </button>
+      </div>
+      <i class="far fa-heart"></i>
+
+    </div>
+
+  </div>
+  <div class="product-description">
+    <div class="product-description-header">
+      <h1>Description</h1>
+    </div>
+    <div class="describe">
+      <p>{{products.description}}</p>
+    </div>
+
+  </div>
+  <div class="product-comments">
+    <div class="product-comments-header">
+      <h1>Comments</h1>
+    </div>
+    <div class="comment">
+      <input type="text" placeholder="Add a coment">
+      <button>Comment</button>
+
+      <div class="commented-section">
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="images/james.jpg" alt="">
+              <span>hello how are you</span>
+            </div>
+            <span class="commentor">James - 3rd March 2020</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookland - Login{% endblock %}
+
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="details">
+  <h1>Login</h1>
+  <p>Home - Login</p>
+</div>
+<div class="mainlogin">
+  <div class="createaccount">
+    <h1>Want to buy books online?</h1>
+    <p>Get your books now!</p>
+    <p>We delivere it on your doorsteps!</p>
+    <a href="{% url 'signup' %}"><button class="signupbtn">Sign up</button></a>
+  </div>
+  <div class="login">
+    <h1>Log In</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {% render_field form.username class="signup-input" placeholder="Email / Username" autocomplete="off" %}
+      {% render_field form.password class="signup-input" placeholder="Password" autocomplete="off" %}
+      {% if form.errors %}
+      <span>{{ form.non_field_errors }}</span>
+      {% endif %}
+      <button type="submit" class="loginbtn">Login</button>
+    </form>
+    <a href="{% url 'password_reset' %}">
+      <p>Forgot Password?</p>
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

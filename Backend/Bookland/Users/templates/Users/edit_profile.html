@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookland - Edit Profile{% endblock %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="details">
+    <h1>Edit Profile</h1>
+    <p>Home - Edit Profile</p>
+</div>
+<section>
+    <div class="edit-profile-div">
+        <div class="box">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="info-box">
+                    <div class="info ">
+                        <h2>Profile Details</h2>
+                        <label>First Name</label>
+                        <div class="info-form ">
+
+                            <span><i class="fa fa-user-circle " aria-hidden="true "></i></span>
+                            {% render_field user_form.first_name class="form-input" autocomplete='off' %}
+                        </div>
+                        <label>Last Name</label>
+                        <div class="info-form ">
+
+                            <span><i class="fa fa-user-circle " aria-hidden="true "></i></span>
+                            {% render_field user_form.last_name class="form-input" autocomplete='off' %}
+                        </div>
+                        <label>Username</label>
+                        <div class="info-form ">
+                            <span><i class="fa fa-user " aria-hidden="true "></i></span>
+                            {% render_field user_form.username class="form-input" autocomplete='off' %}
+                            <p> {{ edit_profile_msg }} </p>
+                        </div>
+                        <label>Phone Number</label>
+                        <div class="info-form ">
+                            <span><i class="fa fa-mobile" aria-hidden="true"></i>
+                            </span>
+
+                            {% render_field profile_form.phone class="form-input" id="number" autocomplete='off' %}
+                        </div>
+                        <label>Address</label>
+                        <div class="info-form ">
+                            <span><i class="fa fa-address-book " aria-hidden="true "></i></span>
+                            {% render_field profile_form.address id="address" class="form-input" autocomplete='off' %}
+                        </div>
+                        <button class="btn ">Save Changes</button>
+                    </div>
+                    <div class="poto ">
+                        <h2>Profile Picture</h2>
+                        <img src="{{ user.profile.image.url }}" class="userimage">
+                        <!-- <button>choose</button> -->
+                        {% render_field profile_form.image accept="image/x-png,image/gif,image/jpeg" class="form-control" %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

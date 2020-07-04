@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookland - Sign up{% endblock %}
+
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="details">
+  <h1>Sign up</h1>
+  <p>Home - Sign up</p>
+</div>
+
+<div class="mainlogin">
+  <div class="createaccount">
+    <h1>Already have an account?</h1>
+    <p>Buy your books now!</p>
+    <p>Login in below!</p>
+    <a href="{% url 'login' %}"><button class="signupbtn">Log in</button></a>
+  </div>
+  <div class="login">
+    <h1>Sign up</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {% render_field form.first_name class="signup-input" placeholder="First Name"%}
+      {% render_field form.last_name class="signup-input" placeholder="Last Name"%}
+      {% render_field form.username class="signup-input" placeholder="Username"%}
+      {% if form.errors %}
+      <span>{{form.errors.username}}</span>
+      {% endif %}
+      {% render_field form.email class="signup-input" placeholder="Email"%}
+      {% render_field form.password1 class="signup-input" placeholder="Password"%}
+      {% render_field form.password2 class="signup-input" placeholder="Confirm Password"%}
+      {% if form.errors %}
+      <span>{{form.errors.password1}}</span>
+      <span>{{form.errors.password2}}</span>
+      {% endif %}
+      <button class="loginbtn">Sign up</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

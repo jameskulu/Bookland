@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookland - Best online book store in Nepal</title>
+  <link rel="icon" type="image/png" href="images/icon.jpg">
+  <link rel="stylesheet" href="vendors/css/swiper.css">
+  <script src="vendors/scripts/font-awesome.js"></script>
+  <link rel="stylesheet" href="css/index-style.css">
+</head>
+
+<body>
+  <main>
+
+    <!-- Header Section -->
+    <div class="header">
+      <div class="inner-header">
+        <div class="nav-bar-icon">
+          <i class="fal fa-bars"></i>
+        </div>
+        <div class="logo">
+          <a href="index.html"><img id="logo-img" src="images/bookland-logo2.jpg" alt="bookland logo"></a>
+        </div>
+        <div class="nav">
+          <ul class="nav-links">
+            <li class="nav-link-list"><a href="#">Home</a></li>
+            <li class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
+                  class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-link">
+                <li><a href="categories.html">Horror</a></li>
+                <li><a href="#">Sci-Fiction</a></li>
+                <li><a href="#">Romance</a></li>
+                <li><a href="#">Biography</a></li>
+              </ul>
+            </li>
+            <li class="nav-link-list"><a href="used-books.html">Used Books</a></li>
+            <li class="nav-link-list"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="search-cart">
+          <span title="Light / Dark Mode Toggle"><input type="checkbox" id="switch" name="theme" /><label
+              for="switch">Toggle</label></span>
+          <span class="search-icon"><i class="fal fa-search"></i></span>
+          <a href="shoppingcart.html"><i class="fal fa-shopping-cart"></i></a>
+        </div>
+        <div class="login-signup-nav">
+          <!-- <a href="login.html"><button>Log In / Sign Up</button></a> -->
+          <div class="user-profile-nav">
+            <a href="" onclick="return false;">Hi, James&nbsp;<i class="fas fa-angle-down"></i></a>
+            <ul class="dropdown-link2">
+              <li><a href="manage_profile.html">Manage Account</a></li>
+              <li><a href="wishlist.html">My Wishlist</a></li>
+              <hr style="width: 120px;">
+              <li><a href="uploadbook.html">Post Your Book</a></li>
+              <li><a href="listed_items.html">My Listed Items</a></li>
+              <hr style="width: 120px;">
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="home-search">
+        <form action="main-search.html">
+          <input type="text" placeholder="Search for books..">
+          <button type="submit"> <i class="fal fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="swiper-container swiper1">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="swipper-slide-description">
+            <span>Books that matter</span>
+            <h1>Shop Online Now !</h1>
+            <p>Buying your books from us means
+              you are supporting your independent high street
+              shops.
+              For inspiration, browse by categories or search box,
+              and find the new releases.
+            </p>
+            <a href="#latest-product"><button>Browse Now</button></a>
+          </div>
+          <img class="first-image" src="images/book1.svg" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img class="second-image" src="images/book4.svg" alt="">
+          <div class="swipper-slide-description2">
+
+            <span>Discover something new,</span>
+            <h1>Sell Your Books !</h1>
+            <p>
+              Place to search,
+              browse, sell and buy new, as well as secondhand books.
+              Get stranded in this world of books.
+            </p>
+            <a href="#latest-product"><button>Browse Now</button></a>
+          </div>
+        </div>
+      </div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- List of Categories -->
+    <div class="categories">
+      <p>Book Genre</p>
+      <h1>Categories</h1>
+      <div class="inner-categories">
+        <a href="categories.html">
+          <div class="single-category">
+            <img src="images/comic.jpg" alt="">
+            <h3>Comic & Humor</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/fantasy.jpg" alt="">
+            <h3>Fantasy</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/romance.jpg" alt="">
+            <h3>Romance</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/fiction.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/category.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/category.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/category.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/category.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+        <a href="">
+          <div class="single-category">
+            <img src="images/category.jpg" alt="">
+            <h3>Fiction</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Recently featured products -->
+    <div class="latest-product" id="latest-product">
+      <p class="latest-product-para">Latest books online</p>
+      <h1>Recently Featured</h1>
+      <div class="inner-latest-product">
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="product-detail.html">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="product-detail.html">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+        <div class="single-latest-product">
+          <img src="images/book1.jpg" alt="">
+          <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+          <div class="product-information">
+            <p>James Kulu</p>
+            <h3><a href="#">The Story Of My Life</a></h3>
+            <span>Rs. 5000.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="offer-banner">
+      <img src="images/girl.svg" alt="">
+      <div class="offer-banner-description">
+        <h1>Best Seller</h1>
+        <h3>Up to 50% off</h3>
+        <p>
+          Check out the best selling works released every week.
+
+        </p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <!-- Recently viewed products -->
+    <div class="outer-recently-viewed">
+      <p class="recently-viewed-para">Your viewed books</p>
+      <h1>Recently Viewed</h1>
+      <div class="swiper-container recently-viewed">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/book1.jpg" alt="">
+            <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+            <div class="product-information">
+              <p>James Kulu</p>
+              <h3><a href="#">The Story Of My Life</a></h3>
+              <span>Rs. 5000.00</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="images/book1.jpg" alt="">
+            <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+            <div class="product-information">
+              <p>James Kulu</p>
+              <h3><a href="#">The Story Of My Life</a></h3>
+              <span>Rs. 5000.00</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="images/book1.jpg" alt="">
+            <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+            <div class="product-information">
+              <p>James Kulu</p>
+              <h3><a href="#">The Story Of My Life</a></h3>
+              <span>Rs. 5000.00</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="images/book1.jpg" alt="">
+            <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+            <div class="product-information">
+              <p>James Kulu</p>
+              <h3><a href="#">The Story Of My Life</a></h3>
+              <span>Rs. 5000.00</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="images/book1.jpg" alt="">
+            <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+            <div class="product-information">
+              <p>James Kulu</p>
+              <h3><a href="#">The Story Of My Life</a></h3>
+              <span>Rs. 5000.00</span>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testomonial">
+      <p>Our customer stories</p>
+      <h1>Testimonials</h1>
+      <div class="inner-testomonial">
+        <div class="single-testomonial">
+          <img src="images/customer1.jpg" alt="">
+          <h3>Rina Dahal</h3>
+          <span>Teacher</span>
+          <p>"Excellent service. The books were wrapped securely and arrived in pristine condition. I sent an email
+            after to books arrived to ask about the author, and I received a prompt reply."</p>
+        </div>
+        <div class="single-testomonial">
+          <img src="images/customer2.jpg" alt="">
+          <h3>Dinesh Rai</h3>
+          <span>Writer</span>
+          <p>"Bookland went above and beyond - great and friendly customer service and free prompt delivery of my book.
+            I highly recommend them. Many thanks!"</p>
+        </div>
+        <div class="single-testomonial">
+          <img src="images/customer3.jpg" alt="">
+          <h3>Rose Shah</h3>
+          <span>Student</span>
+          <p>"Something for every reader! Great selection and even better prices!
+            I will definitely be re-ordering from Bookland again in the future!"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Subscription form -->
+    <div class="email-subscription">
+      <h1>GET UPDATES FROM BOOKLAND</h1>
+      <p>Subscribe and stay in touch with our regular updates and newsletter.</p>
+      <div class="email-subscription-form">
+        <form action="">
+          <input type="text" placeholder="Enter your email">
+          <button type="submit">Subscribe Now</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="inner-footer">
+        <div class="inner-footer-first">
+          <h1>Our Mission</h1>
+          <p>Our goal is to give the customers opportunity to enjoy high-quality services to order and receive the best
+            books. Choose your favorite book with us!
+          <p> At Bookland, you can browse and buy books online at the lowest everyday prices. </p>
+        </div>
+        <div class="inner-footer-second">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Used Books</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="inner-footer-third">
+          <h3>Our Services</h3>
+          <p><i class="fas fa-truck"></i>Free Delivery</p>
+          <p><i class="fas fa-undo-alt"></i>Free Returns</p>
+          <p><i class="fas fa-question-circle"></i>Customer Support</p>
+
+        </div>
+        <div class="inner-footer-fourth">
+          <h3>Contact Us</h3>
+          <div class="head-office">
+            <i class="fas fa-location-circle"></i>
+            <div class="head-office-desc">
+              <p>Head Office:</p>
+              <span>Durbarmarg, Kathmandu</span>
+            </div>
+          </div>
+          <div class="phone-number">
+            <i class="fas fa-phone-square"></i>
+            <div class="phone-number-desc">
+              <p>Phone number:</p>
+              <span>+977 9843123845</span>
+              <!-- <span>+977 9847653726</span> -->
+            </div>
+          </div>
+          <div class="email">
+            <i class="fas fa-envelope-square"></i>
+            <div class="email-desc">
+              <p>Email:</p>
+              <span>bookland@hotmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="second-footer">
+      <p>Copyright ©2020 All rights reserved | Bookland</p>
+    </div>
+
+  </main>
+
+  <!-- Swiper JS -->
+  <script src="vendors/scripts/swiper.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

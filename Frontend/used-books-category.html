@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bookland - Best online book store in Nepal</title>
+  <link rel="icon" type="image/png" href="images/icon.jpg">
+  <link rel="stylesheet" href="vendors/css/swiper.css">
+  <script src="vendors/scripts/font-awesome.js"></script>
+  <link rel="stylesheet" href="css/index-style.css">
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <div class="inner-header">
+      <div class="nav-bar-icon">
+        <i class="fal fa-bars"></i>
+      </div>
+      <div class="logo">
+        <a href="index.html"><img id="logo-img" src="images/bookland-logo2.jpg" alt="bookland logo"></a>
+      </div>
+      <div class="nav">
+        <ul class="nav-links">
+          <li class="nav-link-list"><a href="#">Home</a></li>
+          <li class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
+                class="fas fa-angle-down"></i></a>
+            <ul class="dropdown-link">
+              <li><a href="#">Horror</a></li>
+              <li><a href="#">Sci-Fiction</a></li>
+              <li><a href="#">Romance</a></li>
+              <li><a href="#">Biography</a></li>
+            </ul>
+          </li>
+          <li class="nav-link-list"><a href="used-books.html">Used Books</a></li>
+          <li class="nav-link-list"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="search-cart">
+        <span title="Light / Dark Mode Toggle"><input type="checkbox" id="switch" name="theme" /><label
+            for="switch">Toggle</label></span>
+        <span class="search-icon"><i class="fal fa-search"></i></span>
+        <a href="shoppingcart.html"><i class="fal fa-shopping-cart"></i></a>
+      </div>
+      <div class="login-signup-nav">
+        <!-- <a href="login.html"><button>Log In / Sign Up</button></a> -->
+
+        <div class="user-profile-nav">
+          <a href="" onclick="return false;">Hi, James&nbsp;<i class="fas fa-angle-down"></i></a>
+          <ul class="dropdown-link2">
+            <li><a href="#">Manage Account</a></li>
+            <li><a href="#">My Wishlist</a></li>
+            <hr style="width: 120px;">
+            <li><a href="#">Post Your Book</a></li>
+            <li><a href="#">My Listed Items</a></li>
+            <hr style="width: 120px;">
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="home-search">
+      <form action="main-search.html">
+        <input type="text" placeholder="Search for books..">
+        <button type="submit"> <i class="fal fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <div class="details">
+    <h1>Category</h1>
+    <p>Used Books - Category</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="side">
+          <div class="sidebar">
+            <div class="head">Browse Categories</div>
+            <div class="cate-content">
+              <form>
+                <ul>
+                  <li class="cate-list">
+                    <input id="sci-fiction" class="radiobtn" type="radio" name="brand">
+                    <label for="sci-fiction">sci-fiction</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="non-fiction" class="radiobtn" type="radio" name="brand">
+                    <label for="non-fiction">non-fiction</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="romance" class="radiobtn" type="radio" name="brand">
+                    <label for="romance">romance</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="poetry" class="radiobtn" type="radio" name="brand">
+                    <label for="poetry">poetry</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="motivation" class="radiobtn" type="radio" name="brand">
+                    <label for="motivation">motivation</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="lifestyle" class="radiobtn" type="radio" name="brand">
+                    <label for="lifestyle">lifestyle</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="fantasy" class="radiobtn" type="radio" name="brand">
+                    <label for="fantasy">fantasy & action</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="mystery" class="radiobtn" type="radio" name="brand">
+                    <label for="mystery">mystery & horror</label>
+                  </li>
+                  <li class="cate-list">
+                    <input id="comedy" class="radiobtn" type="radio" name="brand">
+                    <label for="comedy">comedy & humors</label>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+          <div class="price-filter">
+            <div class="rangeslider">
+              <input type="range" min="100" max="3000" value="100" id="myrange" class="slider">
+              <p>Price : $<span id="value"></span></p>
+            </div>
+            <button class="filterbtn">Filter</button>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="searchbar">
+            <div class="srch">
+              <input type="text" placeholder="Search">
+              <div class="srchbtn">
+                <button>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-area">
+            <div class="Area">
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-detail">
+                <div class="card ">
+                  <div class="single-latest-product-hover"><a href="product-detail.html">View
+                      Product</a></div>
+                  <div class="card_img">
+                    <img class="card-img" src="images/book1.jpg" alt="">
+
+                  </div>
+                  <div class="card-body">
+                    <p>Accessories</p>
+                    <h4 class="card-product__title">Quartz Belt Watch </h4>
+                    <p class="card-product__price">$150.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="inner-footer">
+      <div class="inner-footer-first">
+        <h1>Our Mission</h1>
+        <p>So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved us
+          lan
+          Gathering thing us land years living.
+
+        <p> So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved</p>
+      </div>
+      <div class="inner-footer-second">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Used Book</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="inner-footer-third"></div>
+      <div class="inner-footer-fourth">
+
+        <h3>Contact Us</h3>
+        <div class="head-office">
+          <i class="fas fa-location-circle"></i>
+          <div class="head-office-desc">
+            <p>Head Office</p>
+            <span>Durbarmarg, Kathmandu</span>
+          </div>
+        </div>
+        <div class="phone-number">
+          <i class="fas fa-phone-square"></i>
+          <div class="phone-number-desc">
+            <p>Head Office</p>
+            <span>+977 9843123845</span>
+            <!-- <span>+977 9847653726</span> -->
+          </div>
+        </div>
+        <div class="email">
+          <i class="fas fa-envelope-square"></i>
+          <div class="email-desc">
+            <p>Email</p>
+            <span>bookland@hotmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="second-footer">
+    <p>Copyright ©2020 All rights reserved | Bookland</p>
+  </div>
+
+  </main>
+
+
+  <!-- Swiper JS -->
+  <script src="vendors/scripts/swiper.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

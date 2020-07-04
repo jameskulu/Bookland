@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {% block title %}
+    Bookland - Best Online Book Store In Nepal
+    {% endblock %}
+  </title>
+  <link rel="icon" type="image/png" href="{% static 'images/icon.jpg' %} ">
+  <link rel="stylesheet" href="{% static 'vendors/css/swiper.css' %}">
+  <script src="{% static 'vendors/scripts/font-awesome.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/index-style.css' %}">
+</head>
+
+<body>
+  <main>
+
+    <!-- Header Section -->
+    <div class="header">
+      <div class="inner-header">
+        <div class="nav-bar-icon">
+          <i class="fal fa-bars"></i>
+        </div>
+        <div class="logo">
+          <a href="{% url 'home' %}"><img id="logo-img" src="{% static 'images/bookland-logo2.jpg' %}"
+              alt="bookland logo"></a>
+        </div>
+        <div class="nav">
+          <ul class="nav-links">
+            <li class="nav-link-list"><a href="{% url 'home' %}">Home</a></li>
+            <li class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
+                  class="fas fa-angle-down"></i></a>
+              <ul class="dropdown-link">
+                <li><a href="">Horror</a></li>
+                <li><a href="#">Sci-Fiction</a></li>
+                <li><a href="#">Romance</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Biography</a></li>
+              </ul>
+            </li>
+            <li class="nav-link-list"><a href="">Used Books</a></li>
+            <li class="nav-link-list"><a href="">Contact</a></li>
+          </ul>
+        </div>
+        <div class="search-cart">
+          <span title="Light / Dark Mode Toggle"><input type="checkbox" id="switch" name="theme" /><label
+              for="switch">Toggle</label></span>
+          <span class="search-icon"><i class="fal fa-search"></i></span>
+          <a href=""><i class="fal fa-shopping-cart"></i></a>
+        </div>
+        <div class="login-signup-nav">
+
+          {% if user.is_authenticated %}
+
+          <div class="user-profile-nav">
+            <a href="" onclick="return false;">Hi, {{user.first_name}}&nbsp;<i class="fas fa-angle-down"></i></a>
+            <ul class="dropdown-link2">
+              <li><a href="{% url 'manage-profile' %}">Manage Account</a></li>
+              <li><a href="">My Wishlist</a></li>
+              <hr style="width: 120px;">
+              <li><a href="">Post Your Book</a></li>
+              <li><a href="">My Listed Items</a></li>
+              <hr style="width: 120px;">
+              <li><a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+          </div>
+
+          {% else %}
+
+          <a href="{% url 'login' %}"><button>Log In / Sign Up</button></a>
+
+          {% endif %}
+        </div>
+      </div>
+      <div class="home-search">
+        <form action="main-search.html">
+          <input type="text" placeholder="Search for books..">
+          <button type="submit"> <i class="fal fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    {% for message in messages %}
+    <div class="{{ message.tags }}" id='success'>
+      <p><i class="far fa-check-circle"></i>&nbsp;{{ message }}</p>
+      <span id="message-close-btn"><i class="fal fa-times"></i></span>
+    </div>
+    {% endfor %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="inner-footer">
+        <div class="inner-footer-first">
+          <h1>Our Mission</h1>
+          <p>Our goal is to give the customers opportunity to enjoy high-quality services to order and receive the best
+            books. Choose your favorite book with us!
+          <p> At Bookland, you can browse and buy books online at the lowest everyday prices. </p>
+        </div>
+        <div class="inner-footer-second">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Used Books</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="inner-footer-third">
+          <h3>Our Services</h3>
+          <p><i class="fas fa-truck"></i>Free Delivery</p>
+          <p><i class="fas fa-undo-alt"></i>Free Returns</p>
+          <p><i class="fas fa-question-circle"></i>Customer Support</p>
+
+        </div>
+        <div class="inner-footer-fourth">
+          <h3>Contact Us</h3>
+          <div class="head-office">
+            <i class="fas fa-location-circle"></i>
+            <div class="head-office-desc">
+              <p>Head Office:</p>
+              <span>Durbarmarg, Kathmandu</span>
+            </div>
+          </div>
+          <div class="phone-number">
+            <i class="fas fa-phone-square"></i>
+            <div class="phone-number-desc">
+              <p>Phone number:</p>
+              <span>+977 9843123845</span>
+              <!-- <span>+977 9847653726</span> -->
+            </div>
+          </div>
+          <div class="email">
+            <i class="fas fa-envelope-square"></i>
+            <div class="email-desc">
+              <p>Email:</p>
+              <span>bookland@hotmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="second-footer">
+      <p>Copyright ©2020 All rights reserved | Bookland</p>
+    </div>
+
+  </main>
+
+  <!-- Swiper JS -->
+  <script src="{% static 'vendors/scripts/swiper.js' %}"></script>
+  <script src="{% static 'scripts/main.js' %}"></script>
+  <script>
+    let darkLogo = "{% static 'images/bookland-logo-dark.jpg' %}"
+    let lightLogo = "{% static 'images/bookland-logo2.jpg' %}"
+  </script>
+</body>
+
+</html>
