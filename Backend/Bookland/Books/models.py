@@ -26,7 +26,7 @@ class Product(models.Model):
     price = models.IntegerField()
     author = models.CharField(max_length=150)
     image = models.ImageField(upload_to='products',
-                              default='no_image_found.png')
+                              default='image_not_found.png')
     published_date = models.DateTimeField(auto_now_add=True, null=True)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     out_of_stock = models.BooleanField(default=False, null=True, blank=True)

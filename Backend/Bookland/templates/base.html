@@ -41,7 +41,7 @@
                 {% endfor %}
               </ul>
             </li>
-            <li class="nav-link-list"><a href="">Used Books</a></li>
+            <li class="nav-link-list"><a href="{% url 'used-books' %}">Used Books</a></li>
             <li class="nav-link-list"><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
@@ -62,9 +62,9 @@
               <li><a href="{% url 'favrioute-list' %}">My Wishlist</a></li>
               <hr style="width: 120px;">
               <li><a href="">Post Your Book</a></li>
-              <li><a href="">My Listed Items</a></li>
+              <li><a href="{% url 'listed-books' %}">My Listed Items</a></li>
               <hr style="width: 120px;">
-              <li><a href="{% url 'logout' %}">Log Out</a></li>
+              <li><a href="/accounts/logout/?next={{request.path}}">Log Out</a></li>
             </ul>
           </div>
 
@@ -91,9 +91,7 @@
     </div>
     {% endfor %}
 
-
     {% block content %}
-
     {% endblock %}
 
     <!-- Footer -->

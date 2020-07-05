@@ -10,6 +10,7 @@ urlpatterns = [
     path('users/', include('Users.urls')),
     path('', include('Contact.urls')),
     path('cart/', include('Cart.urls')),
+    path('used-books/', include('UsedBooks.urls')),
 ]
 
 if settings.DEBUG:

@@ -71,7 +71,7 @@
 
     {% for product in products %}
     <div class="single-latest-product">
-      <img src="{{ product.image.url }}" alt="">
+      <img src="{{ product.image.url }}" alt="{{ product.title }}">
       <div class="single-latest-product-hover">
         <a href="{% url 'product-detail' product.id %}">View Product</a></div>
       <div class="product-information">
@@ -105,51 +105,17 @@
   <h1>Recently Viewed</h1>
   <div class="swiper-container recently-viewed">
     <div class="swiper-wrapper">
+      {% for product in products %}
       <div class="swiper-slide">
-        <img src="{% static 'images/book1.jpg' %}" alt="">
-        <div class="single-latest-product-hover"><a href="#">View Product</a></div>
+        <img src="{{ product.image.url }}" alt="">
+        <div class="single-latest-product-hover"><a href="{% url 'product-detail' product.id %}">View Product</a></div>
         <div class="product-information">
-          <p>James Kulu</p>
-          <h3><a href="#">The Story Of My Life</a></h3>
-          <span>Rs. 5000.00</span>
+          <p>{{ product.author }}</p>
+          <h3><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h3>
+          <span>Rs. {{ product.price }}.00</span>
         </div>
       </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/book1.jpg' %}" alt="">
-        <div class="single-latest-product-hover"><a href="#">View Product</a></div>
-        <div class="product-information">
-          <p>James Kulu</p>
-          <h3><a href="#">The Story Of My Life</a></h3>
-          <span>Rs. 5000.00</span>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/book1.jpg' %}" alt="">
-        <div class="single-latest-product-hover"><a href="#">View Product</a></div>
-        <div class="product-information">
-          <p>James Kulu</p>
-          <h3><a href="#">The Story Of My Life</a></h3>
-          <span>Rs. 5000.00</span>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/book1.jpg' %}" alt="">
-        <div class="single-latest-product-hover"><a href="#">View Product</a></div>
-        <div class="product-information">
-          <p>James Kulu</p>
-          <h3><a href="#">The Story Of My Life</a></h3>
-          <span>Rs. 5000.00</span>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="{% static 'images/book1.jpg' %}" alt="">
-        <div class="single-latest-product-hover"><a href="#">View Product</a></div>
-        <div class="product-information">
-          <p>James Kulu</p>
-          <h3><a href="#">The Story Of My Life</a></h3>
-          <span>Rs. 5000.00</span>
-        </div>
-      </div>
+      {% endfor %}
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>

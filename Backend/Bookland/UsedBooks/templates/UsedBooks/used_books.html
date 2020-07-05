@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Used Books {% endblock %}
+
+{% block content %}
+
+
+<div class="details">
+  <h1>Used Books</h1>
+  <p>"You can never use a book enough"</p>
+</div>
+
+
+<div class="outer-used-books">
+
+  <div class="categories">
+    <p>Used Books</p>
+    <h1>Categories</h1>
+
+    <div class="inner-categories">
+      {% for category in categories %}
+      <a href="{% url 'used-books-category' category %}">
+        <div class="single-category">
+          <img src="{{ category.image.url }}" alt="{{ category.name }}">
+          <h3>{{ category.name }}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="latest-product">
+    <p class="latest-product-para">Used Books</p>
+    <h1>Recetly Added</h1>
+    <div class="post-book">
+      <!-- <input type="text" placeholder="Search..."> -->
+      <form action="{% url 'used-search' %}">
+        <div class="wrapper-search">
+          <input required name='q' type="text" class="input" placeholder="Search for books, author..">
+          <div class="searchbtn">
+            <button style="background: transparent; border:none;">
+              <i style="cursor: pointer;" class="fas fa-search"></i>
+            </button>
+          </div>
+
+
+        </div>
+      </form>
+
+      <!-- <a href="uploadbook.html"><button>Post Book</button></a> -->
+    </div>
+    <div class="inner-latest-product">
+      {% for product in products %}
+      <div class="single-latest-product">
+        <img src="{{ product.image.url }}" alt="">
+        <div class="single-latest-product-hover"><a href="{% url 'used-books-detail' product.id %}">View Product</a>
+        </div>
+        <div class="product-information">
+          <p>{{ product.author }}</p>
+          <h3><a href="{% url 'used-books-detail' product.id %}">{{ product.title }}</a></h3>
+          <span>Rs. {{ product.price }}.00</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

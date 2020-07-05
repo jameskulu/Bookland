@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Used Books Detail {% endblock %}
+
+{% load widget_tweaks %}
+{% block content %}
+
+
+<!-- Second Hand section -->
+
+
+<div class="details">
+  <h1>Product Details</h1>
+  <p>Used Books - Details</p>
+</div>
+
+
+
+<div class="product-detail-page">
+  <div class="picture-details">
+    <div class="picture-details-img"> <img src="{{ products.image.url }}" alt="{{ products.title }}"></div>
+    <div class="details-info">
+      <p>By {{ products.author }}</p>
+      <h1>{{ products.title }}</h1>
+      <p class="price">Rs. {{ products.price }}.00 </p>
+      <p>Category : {{ products.subcategory.name }}</p>
+
+      <div class="seller-details">
+        <div class="seller-details-header">
+          <h3>Seller Details</h3>
+        </div>
+        <div class="seller-details-body">
+          <p><b>Sold By</b> : {{ products.user.first_name }} {{ products.user.last_name }}</p>
+          <p><b>Email</b> : {{ products.user.email }}</p>
+          <p><b>Address</b> : {{ products.user.profile.address }}</p>
+          <p><b>Phone</b> : {{ products.user.phone }}</p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="product-description">
+    <div class="product-description-header">
+      <h1>Description</h1>
+    </div>
+    <div class="describe">
+      <p>{{ products.description }}</p>
+    </div>
+
+  </div>
+  <div class="product-comments">
+    <div class="product-comments-header">
+      <h1>Comments</h1>
+    </div>
+    <div class="comment">
+
+      {% if user.is_authenticated %}
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field form.content class="" placeholder="Write a comment.." autocomplete="off" %}
+        <button>Comment</button>
+      </form>
+      {% else %}
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field form.content class="" placeholder="Please login to write a comment" autocomplete="off" %}
+        <button disabled>Comment</button>
+      </form>
+      {% endif %}
+
+      <div class="commented-section">
+        {% if comments %}
+        {% for comment in comments %}
+
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="{{ comment.user.profile.image.url }}" alt="">
+              <span>{{ comment.content }}</span>
+            </div>
+            <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
+              {{ comment.time_stamp }}</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+
+
+        {% endfor %}
+        {% else %}
+        <h1 style="margin-top: 10px;">No comments available. Be the first one to comment.</h1>
+        {% endif %}
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

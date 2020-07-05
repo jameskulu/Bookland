@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'Books.apps.BooksConfig',
     'Contact.apps.ContactConfig',
     'Cart.apps.CartConfig',
+    'UsedBooks.apps.UsedbooksConfig',
 
 
     # Installed apps

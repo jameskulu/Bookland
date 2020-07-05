@@ -34,7 +34,8 @@
                                 <li class="cate-list">
                                     <input id="sci-fiction" value="{{ subcategory }}" class="radiobtn" type="radio"
                                         name="subcategory">
-                                    <label for="sci-fiction">{{ subcategory }}</label>
+                                    <label for="sci-fiction">{{ subcategory }}
+                                        ({{subcategory.product_set.count}})</label>
                                 </li>
                                 {% endfor %}
                             </ul>

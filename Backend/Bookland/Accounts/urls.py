@@ -5,7 +5,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('login', views.LoginFormView.as_view(), name='login'),
     path('signup', views.signup, name='signup'),
-    path('logout', views.logout, name='logout'),
+    path('logout/', views.logout, name='logout'),
     path('email-confirmation', views.email_confirmation, name='email-confirmation'),
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
 

@@ -65,7 +65,8 @@ class LoginFormView(SuccessMessageMixin, LoginView):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
-    return redirect('home')
+    # return redirect('home')
+    return HttpResponseRedirect(request.GET.get('next', '/'))
 
 
 @unauthenticated_user

@@ -3765,6 +3765,7 @@ section {
 .main1 .table3 td.wishlist-flex .image-desc a{
   color: var(--heading-color);
   text-decoration: none;
+  font-size: 21px;
 }
 .main1 .table3 td.wishlist-flex .image-desc p{
   margin-top: 10px;
@@ -3806,6 +3807,7 @@ section {
   }
 }
 
+/* Message box */
 #success{
   height: 60px;
   width: 100%;

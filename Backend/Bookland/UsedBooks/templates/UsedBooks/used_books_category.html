@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Used Category Page {% endblock %}
+
+{% block content %}
+
+{% if not maincategorys %}
+
+<div class="details">
+  <h1>Page not found</h1>
+  <a style="text-decoration: none;" href="{% url 'home' %}">
+    <span><i class="fal fa-arrow-left"></i> &nbsp; BACK TO HOMEPAGE</span>
+  </a>
+</div>
+
+{% else %}
+
+<div class="details">
+  <h1>{{ slug }}</h1>
+  <p>Used Books - Category</p>
+</div>
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="side">
+        <div class="sidebar">
+          <div class="head">Browse Categories</div>
+          <div class="cate-content">
+            <form method='GET'>
+              <ul>
+                {% for subcategory in subcategories  %}
+                <li class="cate-list">
+                  <input id="sci-fiction" value="{{ subcategory }}" class="radiobtn" type="radio" name="subcategory">
+                  <label for="sci-fiction">{{ subcategory }}
+                    ({{subcategory.usedproduct_set.count}})</label>
+                </li>
+                {% endfor %}
+              </ul>
+
+          </div>
+        </div>
+        <div class="price-filter">
+          <div class="rangeslider">
+            <!-- <input name="minvalue" type="range" min="100" max="3000" value="100" id="myrange"
+                            class="slider">
+                        <p>Price : $<span id="value"></span></p> -->
+
+            <span class="labelprice" for="">Min Price :</span><br>
+            <input type="number" name="minvalue" id=""><br>
+            <span class="labelprice" for="">Max Price :</span><br>
+            <input type="number" name="maxvalue">
+
+          </div>
+
+
+          <button class="filterbtn">Filter</button>
+        </div>
+        </form>
+      </div>
+
+
+      <div class="product">
+        <form method="GET">
+          <div class="searchbar">
+            <div class="srch">
+
+
+              <input name='name' type="text" placeholder="Search">
+              <div class="srchbtn">
+                <button>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        </form>
+        <div class="product-area">
+          {% if not categories %}
+
+          <h1 style="text-align: center;">No books found</h1>
+
+          {% else %}
+          <div class="Area">
+            {% for cat in categories %}
+            <div class="product-detail">
+
+
+              <div class="card ">
+                <div class="single-latest-product-hover">
+                  <a href="{% url 'used-books-detail' cat.id %}">View Product</a></div>
+                <div class="card_img">
+                  <img class="card-img" src="{{ cat.image.url }}" alt="">
+
+                </div>
+                <div class="card-body">
+                  <p>{{ cat.author }}</p>
+                  <a style="text-decoration: none;" href="{% url 'used-books-detail' cat.id %}">
+                    <h4 class="card-product__title">{{ cat.title }}</h4>
+                  </a>
+                  <p class="card-product__price">Rs. {{ cat.price }}.00</p>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+{% endblock %}

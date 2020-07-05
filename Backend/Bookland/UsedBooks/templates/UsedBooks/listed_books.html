@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Listed Books {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>My Listed Books</h1>
+  <p>Used Books - My Listed Books</p>
+</div>
+<div class="my-wishlist">
+  <div class="main1">
+    <table class="table3">
+      {% for used_product in used_products %}
+      <tr>
+        <td class="wishlist-flex">
+          <a href="{% url 'used-books-detail' used_product.id %}">
+            <img src="{{ used_product.image.url }}">
+          </a>
+          <div class="image-desc">
+            <a href="{% url 'used-books-detail' used_product.id %}">
+              <h3>{{ used_product.title }}</h3>
+            </a>
+            <p><b>Price</b> : Rs. {{ used_product.price }}.00</p>
+            <p><b>Category</b> : {{ used_product.subcategory }}</p>
+          </div>
+        </td>
+        <td class="table-price">
+          <span title="Edit"><a href=""><i class="fal fa-edit"></i></a></span>
+          <span title="Delete"><a href=""><i class="fas fa-trash"></i></a></span>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}

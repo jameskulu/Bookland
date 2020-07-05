@@ -38,7 +38,7 @@
             <form action="{% url 'update-cart' cart.id %}" method="POST">
               {% csrf_token %}
               <input name='quantity' type="number" min="1" max="30" value="{{cart.quantity}}" />
-              <button>Update</button>
+              <button style="margin-left:5px;"><i class="fal fa-sync"></i></button>
             </form>
           </td>
           <td>Rs. {{ cart.price }}.00</td>
