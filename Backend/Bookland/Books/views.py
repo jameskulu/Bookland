@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, SubCategory, Product
+from .models import Category, SubCategory, Product, Comment
+from .forms import CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -20,13 +21,29 @@ def index(request):
 
 def product_detail(request, pk):
     products = get_object_or_404(Product, pk=pk)
+    comments = Comment.objects.filter(product=products).order_by('-time_stamp')
     # products = Product.objects.get(pk=pk)
+
+    if request.method == 'POST':
+
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            content = request.POST.get('content')
+            comment = Comment.objects.create(
+                product=products, user=request.user, content=content)
+            comment.save()
+            return redirect('product-detail', products.id)
+    else:
+        form = CommentForm()
+
     is_favrioute = False
     if products.favrioute.filter(id=request.user.id).exists():
         is_favrioute = True
     context = {
         'products': products,
         'is_favrioute': is_favrioute,
+        'comments': comments,
+        'form': form,
     }
     return render(request, 'Books/product_detail.html', context)
 
@@ -36,6 +53,7 @@ def is_valid_queryparam(param):
 
 
 def categoryView(request, slug):
+    maincategorys = Category.objects.all()
     categories = Product.objects.filter(subcategory__category__name=slug)
     subcategories = SubCategory.objects.filter(category__name=slug)
 
@@ -56,7 +74,14 @@ def categoryView(request, slug):
     if is_valid_queryparam(maxvalue):
         categories = categories.filter(price__lt=maxvalue)
 
-    return render(request, 'Books/category.html', {'categories': categories, 'slug': slug, 'subcategories': subcategories, })
+    context = {
+        'categories': categories,
+        'slug': slug,
+        'subcategories': subcategories,
+        'maincategorys': maincategorys
+    }
+
+    return render(request, 'Books/category.html', context)
 
 
 @login_required()

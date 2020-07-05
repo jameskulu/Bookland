@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'Users.apps.UsersConfig',
     'Books.apps.BooksConfig',
     'Contact.apps.ContactConfig',
+    'Cart.apps.CartConfig',
 
 
     # Installed apps
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
@@ -151,3 +152,6 @@ EMAIL_PORT = 587
 MAILCHIMP_API_KEY = '3246cc2598dc34edde277dfef895acad-us18'
 MAILCHIMP_DATA_CENTER = 'us18'
 MAILCHIMP_EMAIL_AUDIENCE_ID = 'ccd95477f0'
+
+# Session key for cart
+CART_SESSION_KEY = 'product_cart'

@@ -36,15 +36,9 @@
             <li class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
                   class="fas fa-angle-down"></i></a>
               <ul class="dropdown-link">
-                <li><a href="">Horror</a></li>
-                <li><a href="#">Sci-Fiction</a></li>
-                <li><a href="#">Romance</a></li>
-                <li><a href="#">Biography</a></li>
-                <li><a href="#">Biography</a></li>
-                <li><a href="#">Biography</a></li>
-                <li><a href="#">Biography</a></li>
-                <li><a href="#">Biography</a></li>
-                <li><a href="#">Biography</a></li>
+                {% for category in categories %}
+                <li><a href="{% url 'category' category %}">{{ category.name }}</a></li>
+                {% endfor %}
               </ul>
             </li>
             <li class="nav-link-list"><a href="">Used Books</a></li>
@@ -55,7 +49,7 @@
           <span title="Light / Dark Mode Toggle"><input type="checkbox" id="switch" name="theme" /><label
               for="switch">Toggle</label></span>
           <span class="search-icon"><i class="fal fa-search"></i></span>
-          <a href=""><i class="fal fa-shopping-cart"></i></a>
+          <a href="{% url 'cart-detail' %}"><i class="fal fa-shopping-cart"></i></a>
         </div>
         <div class="login-signup-nav">
 
@@ -88,6 +82,8 @@
         </form>
       </div>
     </div>
+
+    <!-- For Message -->
     {% for message in messages %}
     <div class="{{ message.tags }}" id='success'>
       <p><i class="far fa-check-circle"></i>&nbsp;{{ message }}</p>

@@ -1192,7 +1192,6 @@ main{
   margin-left: 675px;
   transition: all 0.4s ease 0s;
   padding: 15px 30px;
-  border-radius: 30px;
   outline: none;
   border: none;
   background-color: var(--main-color);
@@ -1618,8 +1617,12 @@ main{
   display: flex;
   align-items: center;
 }
-.table_info .table1 .product_info td span{
+.table_info .table1 .product_info td a span{
   margin-left: 20px;
+}
+.table_info .table1 .product_info td a{
+  color: var(--description-color);
+  text-decoration: none;
 }
 .table_info .table1 .product_info td img{
   height: 120px;

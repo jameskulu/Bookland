@@ -35,3 +35,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    content = models.CharField(max_length=160)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    time_stamp = models.DateTimeField(auto_now_add=True)

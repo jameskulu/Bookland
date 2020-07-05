@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Detail Page {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>Shopping Cart</h1>
+  <p>Home - Shopping Cart</p>
+</div>
+<div class="table_info">
+  <div class="table1">
+
+    <table class="product_info">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% with carts=cart.list %}
+
+        {% for cart in carts%}
+        <tr>
+          <td>
+            <div class="image-description">
+              <img src="{{ cart.obj.image.url }}" alt="{{ cart.obj.title }}">
+              <!-- <span>{{ cart.obj.title }}</span> -->
+              <a href="{% url 'product-detail' cart.obj.id %}"><span>{{ cart.obj.title }}</span></a>
+            </div>
+          </td>
+          <td>Rs. {{ cart.obj.price }}.00</td>
+          <td>
+            <form action="{% url 'update-cart' cart.id %}" method="POST">
+              {% csrf_token %}
+              <input name='quantity' type="number" min="1" max="30" value="{{cart.quantity}}" />
+              <button>Update</button>
+            </form>
+          </td>
+          <td>Rs. {{ cart.price }}.00</td>
+          <td>
+            <form action="{% url 'remove-from-cart' cart.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit"> <i class="fal fa-times"></i></button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+      <tfoot>
+        <td></td>
+        <td></td>
+        <td>Total</td>
+        <td>Rs. {{ cart.get_total_amount }}0</td>
+        <td></td>
+        {% endwith %}
+      </tfoot>
+    </table>
+
+  </div>
+  <div class="cart-confirm-section">
+    <div class="btn1">
+      <a href="{% url 'home' %}"> <button type="button" class="ctn" name="Ctn">Continue Shopping</button></a>
+    </div>
+    <div class="btn2">
+      <a href="productcheck.html"> <button type="button" class="chk" name="Chk">Proceed To Checkout</button></a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

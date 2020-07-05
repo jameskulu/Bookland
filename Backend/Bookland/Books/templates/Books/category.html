@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% if not subcategories %}
+{% if not maincategorys %}
 
 <div class="details">
     <h1>Page not found</h1>
@@ -47,9 +47,9 @@
                             class="slider">
                         <p>Price : $<span id="value"></span></p> -->
 
-                        <span class="labelprice" for="">Min Price</span><br>
+                        <span class="labelprice" for="">Min Price :</span><br>
                         <input type="number" name="minvalue" id=""><br>
-                        <span class="labelprice" for="">Max Price</span><br>
+                        <span class="labelprice" for="">Max Price :</span><br>
                         <input type="number" name="maxvalue">
 
                     </div>

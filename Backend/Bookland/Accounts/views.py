@@ -47,7 +47,7 @@ def signup(request):
                 mail_subject, message, to=[to_email]
             )
             email.send()
-            return redirect('email-confirmation')
+            return HttpResponseRedirect('email-confirmation')
     else:
         form = SignupForm()
     return render(request, 'Accounts/signup.html', {'form': form})

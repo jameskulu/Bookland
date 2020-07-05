@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Bookland - Detail Page {% endblock %}
 
+{% load widget_tweaks %}
 {% block content %}
 
 <div class="details">
@@ -19,8 +20,11 @@
       <p>Category : {{ products.subcategory.category.name }}</p>
       <p>{{products.intro}}</p>
       <div class="cart">
-        <span>Quantity:</span>&nbsp;<input type="number" min="1" max="10" value="1">
-        <button class="addtocart"> Add to cart </button>
+        <form action="{% url 'add-to-cart' products.id %}" method="POST">
+          {% csrf_token %}
+          <span>Quantity:</span>&nbsp;<input value="1" name='quantity' type="number" min="1" max="10" value="1">
+          <button class="addtocart"> Add to cart </button>
+        </form>
       </div>
       {% if is_favrioute == True %}
       <a href="{% url 'wishlist' products.id %}"><i class="fas fa-heart"></i></a>
@@ -45,90 +49,47 @@
       <h1>Comments</h1>
     </div>
     <div class="comment">
-      <input type="text" placeholder="Add a coment">
-      <button>Comment</button>
+
+      {% if user.is_authenticated %}
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field form.content class="" placeholder="Write a comment.." autocomplete="off" %}
+        <button>Comment</button>
+      </form>
+      {% else %}
+      <form method="POST">
+        {% csrf_token %}
+        {% render_field form.content class="" placeholder="Please login to write a comment" autocomplete="off" %}
+        <button disabled>Comment</button>
+      </form>
+      {% endif %}
 
       <div class="commented-section">
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="images/james.jpg" alt="">
-              <span>hello how are you</span>
-            </div>
-            <span class="commentor">James - 3rd March 2020</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        {% if comments %}
+        {% for comment in comments %}
 
+        <div class="single-commented-section">
+          <div class="question">
+            <div class="question-person">
+              <img src="{{ comment.user.profile.image.url }}" alt="">
+              <span>{{ comment.content }}</span>
+            </div>
+            <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
+              {{ comment.time_stamp }}</span>
+            <div class="answer">
+            </div>
+          </div>
+        </div>
+
+
+        {% endfor %}
+        {% else %}
+        <h1 style="margin-top: 10px;">No comments available. Be the first one to comment.</h1>
+        {% endif %}
+      </div>
+
+
+    </div>
   </div>
 </div>
 
