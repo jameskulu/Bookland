@@ -1619,10 +1619,13 @@ main{
 }
 .table_info .table1 .product_info td a span{
   margin-left: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 .table_info .table1 .product_info td a{
-  color: var(--description-color);
+  color: var(--heading-color);
   text-decoration: none;
+  font-size: 21px;
+  
 }
 .table_info .table1 .product_info td img{
   height: 120px;
@@ -1763,11 +1766,7 @@ width: 70px;
 height: 25px;
 padding:0px 5px;
 }
-.picture-details .details-info .cart input::-webkit-outer-spin-button,
-.picture-details .details-info .cart input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+
 .picture-details .details-info .fa-heart{
 margin-top: 20px;
 font-size: 25px;

@@ -28,6 +28,8 @@
 
   {% if not queries %}
   <h1 style="text-align: center;margin-top: -10px;">Not Found</h1>
+  {% else %}
+  <h1 style="text-align: center;margin-top: -10px;"> ({{queries.count}}) book{{ queries|pluralize }} found</h1>
   {% endif %}
 
 

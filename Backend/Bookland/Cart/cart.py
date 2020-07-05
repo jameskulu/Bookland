@@ -42,7 +42,7 @@ class Cart(object):
 
     def update_cart(self, quantity, product_id):
         pid = str(product_id)
-        self.cart[pid]['quantity'] = quantity
+        self.cart[pid]['quantity'] = int(quantity)
         self.save()
 
     def delete_cart(self, product_id):
