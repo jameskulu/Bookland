@@ -10,6 +10,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Categorie"
+
 
 class SubCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -17,6 +20,9 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Sub Categorie"
 
 
 class Product(models.Model):
@@ -36,9 +42,15 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Book"
+
 
 class Comment(models.Model):
     content = models.CharField(max_length=160)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s comment on {self.product.title}"

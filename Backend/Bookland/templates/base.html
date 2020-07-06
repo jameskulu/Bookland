@@ -61,7 +61,7 @@
               <li><a href="{% url 'manage-profile' %}">Manage Account</a></li>
               <li><a href="{% url 'favrioute-list' %}">My Wishlist</a></li>
               <hr style="width: 120px;">
-              <li><a href="">Post Your Book</a></li>
+              <li><a href="{% url 'category-form' %}">Post Your Book</a></li>
               <li><a href="{% url 'listed-books' %}">My Listed Items</a></li>
               <hr style="width: 120px;">
               <li><a href="/accounts/logout/?next={{request.path}}">Log Out</a></li>

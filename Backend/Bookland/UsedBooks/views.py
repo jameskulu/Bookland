@@ -1,7 +1,8 @@
+from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import CommentForm
+from .forms import CommentForm, UsedProductForm
 from .models import UsedCategory, UsedSubCategory, UsedProduct, UsedComment
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -94,9 +95,74 @@ def used_search(request):
     return render(request, template_name, context)
 
 
+@login_required
 def listed_books(request):
-    used_products = UsedProduct.objects.filter(user=request.user)
+    used_products = UsedProduct.objects.filter(
+        user=request.user).order_by('-published_date')
     context = {
         'used_products': used_products,
     }
     return render(request, 'UsedBooks/listed_books.html', context)
+
+
+@login_required
+def category_form(request):
+    categories = UsedCategory.objects.all()
+    if request.method == 'POST':
+        value = request.POST['cats']
+        request.session['value'] = value
+        return redirect('book-post')
+        # print(value)
+    return render(request, 'UsedBooks/category_form.html', {'categories': categories, })
+
+
+# @login_required
+# def book_post(request):
+
+#     subcategories = UsedSubCategory.objects.filter(
+#         category__name=request.session['value'])
+#     print(subcategories)
+
+#     form = UsedProductForm()
+#     if request.method == 'POST':
+#         form = UsedProductForm(request.POST)
+#         if form.is_valid():
+#             obj = form.save(commit=False)
+#             obj.user = request.user
+#             obj.save()
+#             return redirect('listed-books')
+#     context = {
+#         'form': form,
+#         'subcategories': subcategories,
+#     }
+#     return render(request, 'UsedBooks/uploadbook.html', context)
+
+
+@login_required
+def book_post(request):
+    subcategories = UsedSubCategory.objects.filter(
+        category__name=request.session['value'])
+    if request.method == 'POST' and request.FILES['image']:
+        title = request.POST['title']
+        author = request.POST['author']
+        description = request.POST['description']
+        price = request.POST['price']
+        image = request.FILES.get('image')
+        subcategory = request.POST['subcategory']
+
+        hello = UsedSubCategory.objects.get(id=subcategory)
+
+        print(subcategory)
+        UsedProduct.objects.create(
+            title=title,
+            author=author,
+            description=description,
+            price=price,
+            subcategory=hello,
+            user=request.user,
+            image=image
+        )
+        messages.success(request, 'Your book was uploaded successfully.')
+        return redirect('listed-books')
+
+    return render(request, 'UsedBooks/uploadbook.html', {'subcategories': subcategories})

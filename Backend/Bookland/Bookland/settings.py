@@ -26,12 +26,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     # Apps
     'Accounts.apps.AccountsConfig',
     'Users.apps.UsersConfig',
     'Books.apps.BooksConfig',
     'Contact.apps.ContactConfig',
     'Cart.apps.CartConfig',
+    'Checkout.apps.CheckoutConfig',
     'UsedBooks.apps.UsedbooksConfig',
 
 
@@ -135,7 +137,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
 
 LOGIN_URL = 'login'
 

@@ -27,10 +27,10 @@
   </form>
 
   {% if not queries %}
-  <h1 style="text-align: center;margin-top: -10px;">Not Found</h1>
+  <h1 style="text-align: center;margin-top: -30px;">Not Found</h1>
 
   {% else %}
-  <h1 style="text-align: center;margin-top: -10px;"> ({{queries.count}}) book{{ queries|pluralize }} found</h1>
+  <h1 style="text-align: center;margin-top: -30px;"> ({{queries.count}}) book{{ queries|pluralize }} found</h1>
   {% endif %}
   <div class="latest-product">
     <div class="inner-latest-product">

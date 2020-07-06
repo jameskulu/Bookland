@@ -10,6 +10,9 @@ class UsedCategory(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Categories for Used Book"
+
 
 class UsedSubCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -17,6 +20,9 @@ class UsedSubCategory(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Sub Categories for Used Book"
 
 
 class UsedProduct(models.Model):
@@ -34,9 +40,18 @@ class UsedProduct(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Used Book"
+
 
 class UsedComment(models.Model):
     content = models.CharField(max_length=160)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(UsedProduct, on_delete=models.CASCADE)
     time_stamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s comment on {self.product.title}"
+
+    class Meta:
+        verbose_name = "Used Books Comment"

@@ -1717,6 +1717,7 @@ main{
 }
 .picture-details-img img{
   height: 500px;
+  width: 360px;
 }
 .picture-details .details-info{
   flex:1;
