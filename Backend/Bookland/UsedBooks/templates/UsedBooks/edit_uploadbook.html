@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Edit Book {% endblock %}
+
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="details">
+  <h1> Edit your book </h1>
+  <p>Used Books - Edit your book</p>
+</div>
+<div class="outer-mainupload">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mainupload">
+      {{form}}
+      <button class="adbtn">Update</button>
+
+    </div>
+  </form>
+</div>
+
+{% endblock %}

@@ -3830,3 +3830,42 @@ section {
 #success p .fa-check-circle{
   color: rgb(0, 151, 0);
 }
+
+/* Categor form */
+.category-form-div{
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.category-form{
+  margin-top: 20px;
+}
+.category-form select{
+  width: 200px;
+  padding: 10px 15px;
+}
+.category-form button{
+  width: 150px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-bg-color);
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+/* ----------------- Delete ----------------- */
+
+.delete-book{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

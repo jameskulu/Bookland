@@ -10,6 +10,15 @@
 </div>
 <div class="my-wishlist">
   <div class="main1">
+    {% if not used_products %}
+    <div class="wishlist-empty">
+      <i style=" font-size: 25px;
+      margin-bottom: 10px;" class="fal fa-book-alt hey"></i>
+      <p>There are no Listed books yet.</p>
+      <span>Add your books and they will show here.</span>
+      <a href="{% url 'category-form' %}"><button>Add your book</button></a>
+    </div>
+    {% else %}
     <table class="table3">
       {% for used_product in used_products %}
       <tr>
@@ -26,12 +35,13 @@
           </div>
         </td>
         <td class="table-price">
-          <span title="Edit"><a href=""><i class="fal fa-edit"></i></a></span>
-          <span title="Delete"><a href=""><i class="fas fa-trash"></i></a></span>
+          <span title="Edit"><a href="{% url 'update-book' used_product.id %}"><i class="fal fa-edit"></i></a></span>
+          <span title="Delete"><a href="{% url 'delete-book' used_product.id %}"><i class="fas fa-trash"></i></a></span>
         </td>
       </tr>
       {% endfor %}
     </table>
+    {% endif %}
   </div>
 </div>
 

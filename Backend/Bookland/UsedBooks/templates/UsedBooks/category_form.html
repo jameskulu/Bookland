@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Bookland - Searched Results {% endblock %}
+{% block title %}Bookland - Choose Category {% endblock %}
 
 {% load widget_tweaks %}
 {% block content %}
 
 <div class="details">
-  <h1> Choose Category </h1>
+  <h1> Upload your book </h1>
   <p>Home - Upload your book</p>
 </div>
-<div class="hello">
-
-  <form method="POST">
-    {% csrf_token %}
-    <select name="cats">
-      {% for category in categories %}
-      <option value="{{ category }}">{{ category }}</option>
-      {% endfor %}
-    </select>
-    <button>Next</button>
-  </form>
-
+<div class="category-form-div">
+  <h1>Choose your book category</h1>
+  <div class="category-form">
+    <form method="POST">
+      {% csrf_token %}
+      <select name="cats">
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+      </select>
+      <button>Next</button>
+    </form>
+  </div>
 
 </div>
 

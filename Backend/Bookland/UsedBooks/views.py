@@ -5,6 +5,9 @@ from django.contrib import messages
 from .forms import CommentForm, UsedProductForm
 from .models import UsedCategory, UsedSubCategory, UsedProduct, UsedComment
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.http import HttpResponse
 
 
 def used_books(request):
@@ -142,7 +145,7 @@ def category_form(request):
 def book_post(request):
     subcategories = UsedSubCategory.objects.filter(
         category__name=request.session['value'])
-    if request.method == 'POST' and request.FILES['image']:
+    if request.method == 'POST':
         title = request.POST['title']
         author = request.POST['author']
         description = request.POST['description']
@@ -152,7 +155,6 @@ def book_post(request):
 
         hello = UsedSubCategory.objects.get(id=subcategory)
 
-        print(subcategory)
         UsedProduct.objects.create(
             title=title,
             author=author,
@@ -166,3 +168,39 @@ def book_post(request):
         return redirect('listed-books')
 
     return render(request, 'UsedBooks/uploadbook.html', {'subcategories': subcategories})
+
+
+class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = UsedProduct
+    fields = ['title', 'description', 'author',
+              'image', 'price']
+    template_name = 'UsedBooks/edit_uploadbook.html'
+    success_url = '/used-books/listed-books'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form_valid = super().form_valid(form)
+        messages.success(self.request, "Updated successfully")
+        return form_valid
+
+    def test_func(self):
+        book = self.get_object()
+        if self.request.user == book.user:
+            return True
+        return False
+
+
+@login_required
+def delete_book(request, pk):
+    books = UsedProduct.objects.get(pk=pk)
+    user = request.user
+    if books.user != user:
+        return HttpResponse('You are not authorized to view this page.')
+    if request.method == 'POST':
+        books.delete()
+        messages.error(request, "Your book was deleted successfully.")
+        return redirect('listed-books')
+    context = {
+        'books': books,
+    }
+    return render(request, 'UsedBooks/delete_book.html', context)
