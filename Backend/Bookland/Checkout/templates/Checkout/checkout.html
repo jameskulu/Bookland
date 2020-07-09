@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Checkout {% endblock %}
+
+{% load widget_tweaks %}
+{% block content %}
+
+
+<div class="details">
+  <h1>Checkout</h1>
+  <p>Home - Checkout</p>
+</div>
+
+
+<div class="billingdiv">
+  <div class="billing">
+    <p>
+    <h3>Billing Details</h3>
+    </p>
+    <form method='POST'>
+      <label for="">Company Name (optional)</label>
+      <input type="text" class="BD2" name="company" placeholder="" />
+      <label for="">Street Address*</label>
+      <input type="text" class="BD2" name="street_address" placeholder="" />
+      <label for="">City*</label>
+      <!-- <input type="text" class="BD2" name="bill_d" placeholder="" /> -->
+      <select class="BD2" name="city" id="">
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Lalitpur">Lalitpur</option>
+        <option value="Bhaktapur">Bhaktapur</option>
+      </select>
+      <label for="">Country*</label>
+      <select class="BD2" name="country" id="">
+        <option value="Nepal">Nepal</option>
+      </select>
+
+      <div class="btnC">
+        <button type="button" class="ctn" name="Ctn">Place Order</button>
+      </div>
+    </form>
+  </div>
+  <div class="order">
+    <p>
+    <h3>Your Order</h3>
+    </p>
+    <table class="table2">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% with orders=cart.list %}
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.obj.title }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>Rs. {{ order.obj.price }}.00</td>
+        </tr>
+        {% endfor %}
+        {% endwith %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td>Total</td>
+          <td>Rs. {{cart.get_total_amount}}0</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div>
+
+{% endblock %}

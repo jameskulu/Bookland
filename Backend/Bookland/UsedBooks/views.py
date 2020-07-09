@@ -15,7 +15,7 @@ def used_books(request):
     categories = UsedCategory.objects.all()[0:3]
     context = {
         'products': products,
-        'categories': categories,
+        'usedcategories': categories,
     }
     return render(request, 'UsedBooks/used_books.html', context)
 
@@ -71,9 +71,9 @@ def used_categoryView(request, slug):
         categories = categories.filter(price__lt=maxvalue)
 
     context = {
-        'categories': categories,
+        'usedcategories': categories,
         'slug': slug,
-        'subcategories': subcategories,
+        'usedsubcategories': subcategories,
         'maincategorys': maincategorys
     }
 

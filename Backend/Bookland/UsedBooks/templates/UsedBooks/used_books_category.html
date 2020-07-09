@@ -30,7 +30,7 @@
           <div class="cate-content">
             <form method='GET'>
               <ul>
-                {% for subcategory in subcategories  %}
+                {% for subcategory in usedsubcategories  %}
                 <li class="cate-list">
                   <input id="sci-fiction" value="{{ subcategory }}" class="radiobtn" type="radio" name="subcategory">
                   <label for="sci-fiction">{{ subcategory }}
@@ -81,11 +81,12 @@
         <div class="product-area">
           {% if not categories %}
 
-          <h1 style="text-align: center;">No books found</h1>
-
+          <div style="height: 400px;" class="no-books-found-div">
+            <h1 style="text-align: center;">No books found</h1>
+          </div>
           {% else %}
           <div class="Area">
-            {% for cat in categories %}
+            {% for cat in usedcategories %}
             <div class="product-detail">
 
 

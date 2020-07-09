@@ -17,6 +17,7 @@ def profile(request):
 @login_required
 def edit_profile(request):
     edit_profile_msg = ''
+    message = ''
     if request.method == 'POST':
         user_form = UserForm(request.POST,
                              instance=request.user)
@@ -28,13 +29,19 @@ def edit_profile(request):
             messages.success(request, 'Your profile was updated successfully')
             return redirect('manage-profile')
         else:
-            # edit_profile_msg = 'Username is already taken'
-            return redirect('edit-profile')
+            edit_profile_msg = 'Username is already taken'
+            # return redirect('edit-profile')
+
+        if edit_profile_msg:
+            message = edit_profile_msg
+
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=request.user.profile)
+
+    print(edit_profile_msg)
     context = {
-        # 'edit_profile_msg': edit_profile_msg,
+        'message': message,
         'user_form': user_form,
         'profile_form': profile_form,
     }

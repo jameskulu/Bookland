@@ -81,14 +81,13 @@
                 </form>
                 <div class="product-area">
                     {% if not categories %}
-
-                    <h1 style="text-align: center;">No books found</h1>
-
+                    <div style="height: 400px;" class="no-books-found-div">
+                        <h1 style="text-align: center;">No books found</h1>
+                    </div>
                     {% else %}
                     <div class="Area">
                         {% for cat in categories %}
                         <div class="product-detail">
-
 
                             <div class="card ">
                                 <div class="single-latest-product-hover">
@@ -116,6 +115,14 @@
     </div>
 </section>
 {% endif %}
+
+<script>
+
+    $(document).ready(() => {
+        $("#nav-id").find(".active").removeClass("active");
+        $("#category-nav").addClass("active");
+    })
+</script>
 
 
 {% endblock %}

@@ -10,10 +10,10 @@
 </div>
 
 <div class="delete-book">
-  <h3>Do you sure want to delete?</h3>
+  <h3>Do you sure want to delete "{{ books.title }}"?</h3>
   <form action="" method="POST">
     {% csrf_token %}
-    <input class="btn btn-danger" type="submit" value="Yes, Delete">
+    <input type="submit" value="Yes, Delete">
     <a href="{% url 'listed-books'%}">
       <button type="button">Cancel</button>
     </a>

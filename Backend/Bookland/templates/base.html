@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{% static 'vendors/css/swiper.css' %}">
   <script src="{% static 'vendors/scripts/font-awesome.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/index-style.css' %}">
+  <script type="text/javascript" src="{% static 'vendors/scripts/jquery-3.4.1.slim.min.js' %}"></script>
 </head>
 
 <body>
@@ -31,9 +32,9 @@
               alt="bookland logo"></a>
         </div>
         <div class="nav">
-          <ul class="nav-links">
-            <li class="nav-link-list"><a href="{% url 'home' %}">Home</a></li>
-            <li class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
+          <ul class="nav-links" id='nav-id'>
+            <li id="home-nav" class="nav-link-list active"><a href="{% url 'home' %}">Home</a></li>
+            <li id="category-nav" class="nav-link-list"><a href="#" onclick="return false;">Categories &nbsp;<i
                   class="fas fa-angle-down"></i></a>
               <ul class="dropdown-link">
                 {% for category in categories %}
@@ -41,8 +42,8 @@
                 {% endfor %}
               </ul>
             </li>
-            <li class="nav-link-list"><a href="{% url 'used-books' %}">Used Books</a></li>
-            <li class="nav-link-list"><a href="{% url 'contact' %}">Contact</a></li>
+            <li id="used-nav" class="nav-link-list"><a href="{% url 'used-books' %}">Used Books</a></li>
+            <li id="contact-nav" class="nav-link-list"><a href="{% url 'contact' %}">Contact</a></li>
           </ul>
         </div>
         <div class="search-cart">

@@ -40,7 +40,7 @@ html[data-theme='dark']{
   --description-color:#AAA5A0;
   --wall-color:#3b3b3b;
   --login-bg-color:#3b3b3b;
-  --heading-color:#FFFFFF;
+  --heading-color:#FFFFF1;
   --footer-color:#2b2a2a;
   --footer-header:#fff;
   --footer-para:#AAA5A0;
@@ -234,6 +234,11 @@ main{
 .inner-header .login-signup-nav .user-profile-nav a:hover{
   color: var(--main-color);
 }
+.header .nav .nav-links .active a{
+  color: var(--main-color);
+}
+
+
 .inner-header .login-signup-nav .user-profile-nav .dropdown-link2{
   position: absolute;
 }
@@ -338,6 +343,8 @@ main{
     height: 100%;
     flex-direction: column;
   }
+   
+
   .header .nav .nav-links .nav-link-list{
     padding: 20px 0;
     width: 100%;
@@ -1669,6 +1676,29 @@ main{
 .table_info .cart-confirm-section .btn1{
   margin-right: 10px;
 }
+.empty-table-info{
+  height: 300px;
+  width: 100%;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.empty-table-info h3{
+  font-size: 25px;
+}
+.empty-table-info button{
+  width: 200px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-bg-color);
+  margin-top: 20px;
+  cursor: pointer;
+}
 @media(max-width:760px){
 	.table_info .cart-confirm-section button{
     width: 200px;
@@ -2035,45 +2065,32 @@ font-size: 25px;
 }
 .billingdiv .billing h3{
   font-size: 25px;
-	margin:2% 2% 40px 2%;
+	margin:2% 2% 30px 2%;
 }
 .billingdiv .billing input{
-  padding:12px 10px ;
+  
+}
+.billingdiv .billing .BD2::placeholder{
+  color: var(--description-color);
+}
+.billingdiv .billing .BD2{
+	width: 94%;
+	margin-left: 2%;
+	margin-top:15px;
+  height: 38px;
+  padding:10px 10px;
   outline: none;
   background: transparent;
   border: 1px solid var(--wall-color);
   color: var(--description-color);
 }
-.billingdiv .billing input::placeholder{
-  color: var(--description-color);
+.billingdiv .billing label{
+  margin-left: 2%;
+  margin-top: 15px;
+  display: inline-block;
+  color: var(--heading-color);
 }
-.billingdiv .billing .BD{
-	width: 45%;
-	margin-left: 2%;
-	height: 38px;
-}
-.billingdiv .billing .BD1{
-	width: 45%;
-	margin-left: 3%;
-	height: 38px;
-}
-.billingdiv .billing .BD2{
-	width: 94%;
-	margin-left: 2%;
-	margin-top:20px;
-	height: 38px;
-}
-.billingdiv .billing .BD3{
-	width: 45%;
-	margin-left: 2%;
-	margin-top:20px;
-	height: 38px;
-}
- .billingdiv .billing .BD4{
-	width: 45%;
-	margin-left: 3%;
-	height: 38px;
-}
+
 .billingdiv .billing .btnC{
 	margin-top:20px;
 	margin-left:2%;
@@ -2503,6 +2520,7 @@ font-size: 25px;
 section {
   padding-top: 100px;
   background-color: var(--bg-color);
+  
 }
 .side {
   width: 100%;
@@ -3868,4 +3886,22 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.delete-book h3{
+  font-size: 25px;
+}
+.delete-book input,.delete-book button{
+  width: 200px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--secondary-bg-color);
+  cursor: pointer;margin-top: 40px;
+}
+.delete-book button{
+  margin-left: 10px;
+  color: var(--heading-color);
+  background-color: var(--secondary-bg-color);
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Bookland - Detail Page {% endblock %}
+{% block title %}Bookland - Your Cart {% endblock %}
 
 {% block content %}
 
@@ -8,6 +8,16 @@
   <h1>Shopping Cart</h1>
   <p>Home - Shopping Cart</p>
 </div>
+
+
+{% if not cart.list %}
+<div class="empty-table-info">
+  <h3>Your cart is empty</h3>
+  <a href="{% url 'home' %}"><button>Continue Shopping</button></a>
+</div>
+
+{% else %}
+
 <div class="table_info">
   <div class="table1">
 
@@ -68,9 +78,10 @@
       <a href="{% url 'home' %}"> <button type="button" class="ctn" name="Ctn">Continue Shopping</button></a>
     </div>
     <div class="btn2">
-      <a href="productcheck.html"> <button type="button" class="chk" name="Chk">Proceed To Checkout</button></a>
+      <a href="{% url 'checkout' %}"> <button type="button" class="chk" name="Chk">Proceed To Checkout</button></a>
     </div>
   </div>
 </div>
+{% endif %}
 
 {% endblock %}

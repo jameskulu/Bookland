@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="details">
-  <h1>Searched results for: {{ q }}</h1>
+  <h1>Searched results for: {{ q|truncatechars:15 }}</h1>
 </div>
 
 

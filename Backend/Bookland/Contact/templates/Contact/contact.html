@@ -71,4 +71,17 @@
     </div>
 </div>
 
+<script>
+    //if (document.querySelector('.nav-links').contains('active')) {
+    //  document.querySelector('.nav-links').classList.remove('activee')
+    //}
+    //document.getElementById('nav-id').querySelectorAll('.nav-link-list').classList.remove('active')
+    //document.querySelector('#contact-nav').classList.add('active')
+
+    $(document).ready(() => {
+        $("#nav-id").find(".active").removeClass("active");
+        $("#contact-nav").addClass("active");
+    })
+</script>
+
 {% endblock %}

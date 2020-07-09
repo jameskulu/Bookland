@@ -33,7 +33,7 @@
           browse, sell and buy new, as well as secondhand books.
           Get stranded in this world of books.
         </p>
-        <a href=""><button>Sell Now</button></a>
+        <a href="{% url 'category-form' %}"><button>Sell Now</button></a>
       </div>
     </div>
   </div>
@@ -165,5 +165,17 @@
     </form>
   </div>
 </div>
+<script>
+  //if (document.querySelector('.nav-links').contains('active')) {
+  //  document.querySelector('.nav-links').classList.remove('activee')
+  //}
+  //document.getElementById('nav-id').querySelectorAll('.nav-link-list').classList.remove('active')
+  //document.querySelector('#contact-nav').classList.add('active')
+
+  $(document).ready(() => {
+    $("#nav-id").find(".active").removeClass("active");
+    $("#home-nav").addClass("active");
+  })
+</script>
 
 {% endblock %}

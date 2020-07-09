@@ -6,10 +6,11 @@ from .cart import Cart
 
 def cart_detail(request):
     carts = Cart(request)
-    # cart = carts.list()
+    cart = carts.list()
     context = {
         'cart': carts,
     }
+    print(cart)
     return render(request, 'Cart/cart_detail.html', context)
 
 
