@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Bookland - Used Books Detail {% endblock %}
 
+{% load humanize %}
 {% load widget_tweaks %}
 {% block content %}
 
@@ -77,11 +78,11 @@
         <div class="single-commented-section">
           <div class="question">
             <div class="question-person">
-              <img src="{{ comment.user.profile.image.url }}" alt="">
+              <img src="{{ comment.user.profile.image.url }}" alt="{{ comment.user.username }}">
               <span>{{ comment.content }}</span>
             </div>
             <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
-              {{ comment.time_stamp }}</span>
+              {{ comment.time_stamp|naturaltime }}</span>
             <div class="answer">
             </div>
           </div>

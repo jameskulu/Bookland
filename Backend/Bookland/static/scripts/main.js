@@ -82,21 +82,21 @@ document.querySelector('.nav-bar-icon')
 
 // ---------------------------- Dark Mode -------------------------------
 
-
+let darkMode = localStorage.getItem('darkMode');
 let checkbox = document.querySelector('input[name=theme]');
-let checked = JSON.parse(localStorage.getItem('checkbox1zaal1'));
 
 checkbox.addEventListener('change', function () {
   if (this.checked) {
     trans()
     document.documentElement.setAttribute('data-theme', 'dark')
     document.getElementById('logo-img').src = darkLogo
-    localStorage.setItem("favorite", checkbox.value)
+    localStorage.setItem('darkMode', 'enabled');
+
   } else {
     trans()
-    localStorage.removeItem("favorite");
     document.documentElement.setAttribute('data-theme', 'light')
     document.getElementById('logo-img').src = lightLogo
+    localStorage.setItem('darkMode', null);
   }
 })
 let trans = () => {
@@ -105,6 +105,7 @@ let trans = () => {
     document.documentElement.classList.remove('transition')
   }, 1000)
 }
+
 
 // ------------ Navigation toggle ----------------
 
@@ -129,3 +130,6 @@ messageCloseBtn.addEventListener("click", function () {
 setInterval(function () {
   messageDiv.style.display = 'none'
 }, 7000)
+
+
+

@@ -34,7 +34,7 @@
       <tbody>
         {% with carts=cart.list %}
 
-        {% for cart in carts%}
+        {% for cart in carts %}
         <tr>
           <td>
             <div class="image-description">
@@ -47,6 +47,7 @@
           <td>
             <form action="{% url 'update-cart' cart.id %}" method="POST">
               {% csrf_token %}
+              {{ form }}
               <input name='quantity' type="number" min="1" max="10" value="{{cart.quantity}}" />
               <button style="margin-left:5px;"><i class="fal fa-sync"></i></button>
             </form>

@@ -32,8 +32,9 @@
               <ul>
                 {% for subcategory in usedsubcategories  %}
                 <li class="cate-list">
-                  <input id="sci-fiction" value="{{ subcategory }}" class="radiobtn" type="radio" name="subcategory">
-                  <label for="sci-fiction">{{ subcategory }}
+                  <input id="{{ subcategory }}" value="{{ subcategory }}" class="radiobtn" type="radio"
+                    name="subcategory">
+                  <label for="{{ subcategory }}">{{ subcategory }}
                     ({{subcategory.usedproduct_set.count}})</label>
                 </li>
                 {% endfor %}
@@ -79,16 +80,15 @@
           </div>
         </form>
         <div class="product-area">
-          {% if not categories %}
+          {% if not page_obj %}
 
           <div style="height: 400px;" class="no-books-found-div">
             <h1 style="text-align: center;">No books found</h1>
           </div>
           {% else %}
           <div class="Area">
-            {% for cat in usedcategories %}
+            {% for cat in page_obj %}
             <div class="product-detail">
-
 
               <div class="card ">
                 <div class="single-latest-product-hover">
@@ -113,6 +113,30 @@
         </div>
       </div>
     </div>
+
+    <div class="pagination-div">
+
+      {% if page_obj %}
+      {% if page_obj.has_previous %}
+      <a class="" href="?page={{ page_obj.previous_page_number }}"><button>Previous</button></a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+      <a class="" href="?page={{ num }}"><button>{{ num }}</button></a>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+      <a class="" href="?page={{ num }}"><button>{{ num }}</button></a>
+      {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <a class="" href="?page={{ page_obj.next_page_number }}"><button>Next</button></a>
+      {% endif %}
+      {% endif %}
+    </div>
+
+
+
   </div>
 </section>
 {% endif %}

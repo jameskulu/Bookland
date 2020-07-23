@@ -3,6 +3,7 @@
 {% block title %}Bookland - Detail Page {% endblock %}
 
 {% load widget_tweaks %}
+{% load humanize %}
 {% block content %}
 
 <div class="details">
@@ -22,7 +23,7 @@
       <div class="cart">
         <form action="{% url 'add-to-cart' products.id %}" method="POST">
           {% csrf_token %}
-          <span>Quantity:</span>&nbsp;<input value=1 name='quantity' type="number" min="1" max="10" value="1">
+          <span>Quantity:</span>&nbsp;<input name='quantity' type="number" min="1" max="10" value="1">
           <button class="addtocart"> Add to cart </button>
         </form>
       </div>
@@ -71,11 +72,11 @@
         <div class="single-commented-section">
           <div class="question">
             <div class="question-person">
-              <img src="{{ comment.user.profile.image.url }}" alt="">
+              <img src="{{ comment.user.profile.image.url }}" alt="{{ comment.user.username }}">
               <span>{{ comment.content }}</span>
             </div>
             <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
-              {{ comment.time_stamp }}</span>
+              {{ comment.time_stamp|naturaltime }}</span>
             <div class="answer">
             </div>
           </div>

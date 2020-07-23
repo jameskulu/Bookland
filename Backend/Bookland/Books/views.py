@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from Contact.forms import SubscribeForm
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def index(request):
@@ -62,23 +63,65 @@ def categoryView(request, slug):
     maxvalue = request.GET.get('maxvalue')
     subcategory = request.GET.get('subcategory')
 
+    paginator = Paginator(categories, 9)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_pages)
+
     if is_valid_queryparam(name):
         categories = categories.filter(title__icontains=name)
+        paginator = Paginator(categories, 9)
+        page = request.GET.get('page')
+        try:
+            post_list = paginator.page(page)
+        except PageNotAnInteger:
+            post_list = paginator.page(1)
+        except EmptyPage:
+            post_list = paginator.page(paginator.num_pages)
 
     if is_valid_queryparam(subcategory):
         categories = categories.filter(subcategory__name=subcategory)
+        paginator = Paginator(categories, 9)
+        page = request.GET.get('page')
+        try:
+            post_list = paginator.page(page)
+        except PageNotAnInteger:
+            post_list = paginator.page(1)
+        except EmptyPage:
+            post_list = paginator.page(paginator.num_pages)
 
     if is_valid_queryparam(minvalue):
         categories = categories.filter(price__gte=minvalue)
+        paginator = Paginator(categories, 9)
+        page = request.GET.get('page')
+        try:
+            post_list = paginator.page(page)
+        except PageNotAnInteger:
+            post_list = paginator.page(1)
+        except EmptyPage:
+            post_list = paginator.page(paginator.num_pages)
 
     if is_valid_queryparam(maxvalue):
         categories = categories.filter(price__lt=maxvalue)
+        paginator = Paginator(categories, 9)
+        page = request.GET.get('page')
+        try:
+            post_list = paginator.page(page)
+        except PageNotAnInteger:
+            post_list = paginator.page(1)
+        except EmptyPage:
+            post_list = paginator.page(paginator.num_pages)
 
     context = {
         'categories': categories,
         'slug': slug,
         'subcategories': subcategories,
-        'maincategorys': maincategorys
+        'maincategorys': maincategorys,
+        'page_obj': post_list,
     }
 
     return render(request, 'Books/category.html', context)

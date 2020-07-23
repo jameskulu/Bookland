@@ -10,6 +10,7 @@ class Cart(object):
         if not cart:
             cart = self.session[settings.CART_SESSION_KEY] = {}
         self.cart = cart
+        print(self.cart)
 
     def add(self, product, quantity):
         product_id = str(product.id)
@@ -32,7 +33,7 @@ class Cart(object):
                 'id': product_id,
                 'obj': obj,
                 'quantity': self.cart[product_id]['quantity'],
-                'price': Decimal(int(self.cart[product_id]['quantity']) * obj.price)
+                'price': Decimal(int(self.cart[product_id]['quantity']) * float(obj.price))
             }
             carts.append(tmp_cart)
         return carts

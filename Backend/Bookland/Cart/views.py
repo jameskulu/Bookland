@@ -6,11 +6,11 @@ from .cart import Cart
 
 def cart_detail(request):
     carts = Cart(request)
-    cart = carts.list()
+    # cart = carts.list()
     context = {
         'cart': carts,
     }
-    print(cart)
+    # print(cart)
     return render(request, 'Cart/cart_detail.html', context)
 
 
@@ -18,9 +18,10 @@ def add_to_cart(request, id):
     if request.method == 'POST':
         product = Product.objects.get(id=id)
         quantity = int(request.POST['quantity'])
-        cart = Cart(request)
+
         if not quantity:
             quantity = 1
+        cart = Cart(request)
         cart.add(product, quantity)
         messages.success(request, 'Book added to cart')
         return redirect('cart-detail')

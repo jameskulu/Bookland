@@ -3905,3 +3905,23 @@ section {
   color: var(--heading-color);
   background-color: var(--secondary-bg-color);
 }
+
+/* Pagination */
+
+.pagination-div{
+  height: 50px;
+  width: 70%;
+  float: right;
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+}
+.pagination-div button{
+  padding: 7px 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--footer-header);
+  margin-right: 5px;
+}
