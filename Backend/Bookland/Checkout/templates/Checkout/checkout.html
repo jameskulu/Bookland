@@ -18,6 +18,7 @@
     <h3>Billing Details</h3>
     </p>
     <form method='POST'>
+      {% csrf_token %}
       <label for="">Company Name (optional)</label>
       <input type="text" class="BD2" name="company" placeholder="" />
       <label for="">Street Address*</label>
@@ -35,7 +36,7 @@
       </select>
 
       <div class="btnC">
-        <button type="button" class="ctn" name="Ctn">Place Order</button>
+        <button type="submit" class="ctn" name="Ctn">Place Order</button>
       </div>
     </form>
   </div>
@@ -57,7 +58,7 @@
         <tr>
           <td>{{ order.obj.title }}</td>
           <td>{{ order.quantity }}</td>
-          <td>Rs. {{ order.obj.price }}.00</td>
+          <td>Rs. {{ order.price }}.00</td>
         </tr>
         {% endfor %}
         {% endwith %}
