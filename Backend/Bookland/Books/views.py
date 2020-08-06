@@ -117,7 +117,7 @@ def categoryView(request, slug):
             post_list = paginator.page(paginator.num_pages)
 
     context = {
-        'categories': categories,
+        'categoriess': categories,
         'slug': slug,
         'subcategories': subcategories,
         'maincategorys': maincategorys,

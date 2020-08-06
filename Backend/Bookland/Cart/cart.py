@@ -40,7 +40,7 @@ class Cart(object):
         return carts
 
     def get_total_amount(self):
-        return sum(float(v['price']) for v in self.cart.values())
+        return sum([Decimal(item['quantity'] * item['price']) for item in self.cart.values()])
 
     def update_cart(self, quantity, product_id):
         pid = str(product_id)

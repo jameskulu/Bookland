@@ -8,12 +8,15 @@ def cart_detail(request):
     carts = Cart(request)
     cart = carts.list()
 
-    total_price = 0
-    for i in range(0, len(cart)):
-        total_price += cart[i]['price']
+    # total_price = 0
+    # for i in range(0, len(cart)):
+    #     total_price += cart[i]['price']
+    # print(total_price)
+
     context = {
         'cart': carts,
-        'total_price': total_price
+        # 'total_price': total_price,
+        'total_cart': sum([c['price'] for c in carts.list()])
     }
     return render(request, 'Cart/cart_detail.html', context)
 
@@ -32,19 +35,22 @@ def add_to_cart(request, id):
 
 
 def update_cart(request, id):
+    cart = Cart(request)
+
     if request.method == 'POST':
         data = request.POST
         quantity = data['quantity']
-        cart = Cart(request)
+
         cart.update_cart(quantity, id)
 
-        context = {
-            'cart': cart
-        }
         messages.success(request, 'Cart Updated')
     else:
         return redirect('cart-detail')
 
+    context = {
+        'cart': cart,
+        'total_cart': sum([c['price'] for c in cart.list()])
+    }
     return render(request, 'Cart/cart_detail.html', context)
 
 

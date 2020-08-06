@@ -3933,7 +3933,7 @@ section {
 .delete-book button{
   margin-left: 10px;
   color: var(--heading-color);
-  background-color: var(--secondary-bg-color);
+  background-color: var(--wall-color)
 }
 
 /* Pagination */

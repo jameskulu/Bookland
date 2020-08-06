@@ -81,9 +81,11 @@ document.querySelector('.nav-bar-icon')
 
 
 // ---------------------------- Dark Mode -------------------------------
-
+// document.getElementById('logo-img').src = darkLogo
 
 let darkMode = localStorage.getItem('darkMode');
+
+
 
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 
@@ -104,7 +106,7 @@ if (darkMode === 'enabled') {
 let checkbox = document.querySelector('input[name=theme]');
 
 
-// darkModeToggle.addEventListener('click', () => {
+
 checkbox.addEventListener('change', () => {
   darkMode = localStorage.getItem('darkMode');
 
@@ -136,7 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 
-
+if (darkMode === 'enabled') {
+  document.getElementById('logo-img').src = darkLogo
+  // alert('hello')
+}
 
 
 // ---------------------------- Dark Mode -------------------------------
@@ -176,7 +181,7 @@ document.querySelector('.nav-bar-icon')
 
 
 
-// ------ Message Close ----
+// ------------------- Message Close ----------------
 
 let messageCloseBtn = document.querySelector('#message-close-btn')
 let messageDiv = document.querySelector('#success');

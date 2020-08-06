@@ -14,7 +14,7 @@
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Yes, Cancel Order">
-    <a href="{% url 'orders'%}">
+    <a href="{% url 'orders' %}">
       <button type="button">No</button>
     </a>
   </form>
