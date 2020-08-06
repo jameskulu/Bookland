@@ -7,10 +7,14 @@ from .cart import Cart
 def cart_detail(request):
     carts = Cart(request)
     cart = carts.list()
+
+    total_price = 0
+    for i in range(0, len(cart)):
+        total_price += cart[i]['price']
     context = {
         'cart': carts,
+        'total_price': total_price
     }
-    print(cart)
     return render(request, 'Cart/cart_detail.html', context)
 
 

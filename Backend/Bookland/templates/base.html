@@ -52,8 +52,9 @@
           </ul>
         </div>
         <div class="search-cart">
-          <span title="Light / Dark Mode Toggle"><input type="checkbox" id="switch" name="theme" /><label
+          <span title="Light / Dark Mode Toggle"><input type="checkbox" name='theme' id="switch" /><label
               for="switch">Toggle</label></span>
+          <!-- <button id="dark-mode-toggle" class="dark-mode-toggle">hello</button> -->
           <span class="search-icon"><i class="fal fa-search"></i></span>
           <a href="{% url 'cart-detail' %}"><i class="fal fa-shopping-cart"></i></a>
         </div>
@@ -65,6 +66,7 @@
             <a href="" onclick="return false;">Hi, {{user.first_name}}&nbsp;<i class="fas fa-angle-down"></i></a>
             <ul class="dropdown-link2">
               <li><a href="{% url 'manage-profile' %}">Manage Account</a></li>
+              <li><a href="{% url 'orders' %}">My Orders</a></li>
               <li><a href="{% url 'favrioute-list' %}">My Wishlist</a></li>
               <hr style="width: 120px;">
               <li><a href="{% url 'category-form' %}">Post Your Book</a></li>

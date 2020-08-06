@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - My Orders {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>My Orders</h1>
+  <p>Home - My Orders</p>
+</div>
+<div class="my-wishlist">
+  <div class="main1">
+    {% if not orders %}
+    <div class="wishlist-empty">
+      <i style=" font-size: 25px;
+      margin-bottom: 10px;" class="fal fa-book-alt hey"></i>
+      <p>You have not ordered any books.</p>
+      <span>Buy some books and they will show here.</span>
+      <a href="{% url 'home' %}"><button>Continue Shopping</button></a>
+    </div>
+    {% else %}
+    <table class="table3">
+      {% for order in orders %}
+      <tr>
+        <td class="wishlist-flex">
+          <a href="{% url 'product-detail' order.product.id %}">
+            <img src="{{ order.product.image.url }}">
+          </a>
+          <div class="image-desc">
+            <a href="{% url 'product-detail' order.product.id %}">
+              <h3>{{ order.product|truncatechars:25 }}</h3>
+            </a>
+            <p><b>Price</b> : Rs. {{ order.product.price }}.00</p>
+            <p><b>Category</b> : {{ order.product.subcategory }}</p>
+          </div>
+        </td>
+        <td class="table-price">
+
+          <span><a href="{% url 'cancel-book' order.id %}">Cancel</a></span>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

@@ -56,7 +56,7 @@
         {% with orders=cart.list %}
         {% for order in orders %}
         <tr>
-          <td>{{ order.obj.title }}</td>
+          <td>{{ order.obj.title|truncatechars:15 }}</td>
           <td>{{ order.quantity }}</td>
           <td>Rs. {{ order.price }}.00</td>
         </tr>
@@ -67,7 +67,7 @@
         <tr>
           <td></td>
           <td>Total</td>
-          <td>Rs. {{cart.get_total_amount}}0</td>
+          <td>Rs. {{total_price}}.00</td>
         </tr>
       </tfoot>
     </table>

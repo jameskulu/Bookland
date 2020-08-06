@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
 from Books.models import Product
+from Checkout.models import CustomerOrder
 
 
 @login_required
@@ -76,3 +77,29 @@ def favrioute_list(request):
     }
 
     return render(request, 'Users/wishlist.html', context)
+
+
+@login_required()
+def my_orders(request):
+    orders = CustomerOrder.objects.filter(customer=request.user)
+    context = {
+        'orders': orders,
+    }
+    return render(request, 'Users/orders.html', context)
+
+
+@login_required
+def cancel_book(request, pk):
+    books = CustomerOrder.objects.get(pk=pk)
+    user = request.user
+    if books.customer != user:
+        return HttpResponse('You are not authorized to view this page.')
+    if request.method == 'POST':
+        books.delete()
+        messages.error(
+            request, f"Your order was cancelled successfully.")
+        return redirect('orders')
+    context = {
+        'books': books,
+    }
+    return render(request, 'Users/cancel_book.html', context)

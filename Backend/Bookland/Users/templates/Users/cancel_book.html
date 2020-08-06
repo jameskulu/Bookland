@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bookland - Cancel Book {% endblock %}
+
+{% block content %}
+
+<div class="details">
+  <h1>Cancel Book</h1>
+  <p>Home - Cancel Book</p>
+</div>
+
+<div class="delete-book">
+  <h3>Do you sure want to cancel the order of "{{ books.product.title|truncatechars:25 }}"?</h3>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, Cancel Order">
+    <a href="{% url 'orders'%}">
+      <button type="button">No</button>
+    </a>
+  </form>
+</div>
+
+
+{% endblock %}

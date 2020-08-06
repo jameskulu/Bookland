@@ -40,7 +40,7 @@
             <div class="image-description">
               <img src="{{ cart.obj.image.url }}" alt="{{ cart.obj.title }}">
               <!-- <span>{{ cart.obj.title }}</span> -->
-              <a href="{% url 'product-detail' cart.obj.id %}"><span>{{ cart.obj.title }}</span></a>
+              <a href="{% url 'product-detail' cart.obj.id %}"><span>{{ cart.obj.title|truncatechars:25 }}</span></a>
             </div>
           </td>
           <td>Rs. {{ cart.obj.price }}.00</td>
@@ -67,7 +67,7 @@
         <td></td>
         <td></td>
         <td>Total</td>
-        <td>Rs. {{ cart.get_total_amount }}0</td>
+        <td>Rs. {{ total_price }}.00</td>
         <td></td>
         {% endwith %}
       </tfoot>

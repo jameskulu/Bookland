@@ -99,7 +99,7 @@
                                 <div class="card-body">
                                     <p>{{ cat.author }}</p>
                                     <a style="text-decoration: none;" href="{% url 'product-detail' cat.id %}">
-                                        <h4 class="card-product__title">{{ cat.title }}</h4>
+                                        <h4 class="card-product__title">{{ cat.title|truncatechars:25 }}</h4>
                                     </a>
                                     <p class="card-product__price">Rs. {{ cat.price }}.00</p>
                                 </div>

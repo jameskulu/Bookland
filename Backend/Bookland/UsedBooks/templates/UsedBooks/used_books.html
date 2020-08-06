@@ -22,7 +22,7 @@
       <a href="{% url 'used-books-category' category %}">
         <div class="single-category">
           <img src="{{ category.image.url }}" alt="{{ category.name }}">
-          <h3>{{ category.name }}</h3>
+          <h3>{{ category.name|truncatechars:25 }}</h3>
         </div>
       </a>
       {% endfor %}
@@ -58,7 +58,7 @@
         </div>
         <div class="product-information">
           <p>{{ product.author }}</p>
-          <h3><a href="{% url 'used-books-detail' product.id %}">{{ product.title }}</a></h3>
+          <h3><a href="{% url 'used-books-detail' product.id %}">{{ product.title|truncatechars:25 }}</a></h3>
           <span>Rs. {{ product.price }}.00</span>
         </div>
       </div>

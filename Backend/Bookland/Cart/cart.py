@@ -51,3 +51,7 @@ class Cart(object):
         pid = str(product_id)
         del self.cart[pid]
         self.save()
+
+    def clear_cart(self):
+        del self.session[settings.CART_SESSION_KEY]
+        self.save()
