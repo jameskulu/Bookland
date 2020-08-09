@@ -25,7 +25,21 @@
   <div class="container">
     <div class="row">
       <div class="side">
+
         <div class="sidebar">
+          <div class="head">Browse Categories</div>
+          <div class="cate-content">
+            <ul>
+              {% for maincategory in maincategorys %}
+              <li class="cate-list"><a href=" {% url 'used-books-category' maincategory %}">
+                  {{maincategory}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+
+        <div style="margin-top: 20px;" class="sidebar">
           <div class="head">Browse Categories</div>
           <div class="cate-content">
             <form method='GET'>

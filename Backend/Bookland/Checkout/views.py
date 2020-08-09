@@ -4,6 +4,7 @@ from Cart.cart import Cart
 from .models import CustomerLocation, CustomerOrder
 from django.contrib import messages
 from django.core.mail import send_mail
+from tabulate import tabulate
 
 
 @login_required()
@@ -11,18 +12,16 @@ def checkout(request):
     carts = Cart(request)
     cart = carts.list()
 
-    list_of_product = []
-    for i in range(0, len(cart)):
-        list_of_product.append(cart[i]['obj'])
+    hello = []
+    for c in cart:
+        a = [c['obj'], c['quantity'], f"Rs. {c['price']}.00",
+             f"Rs. {c['price']*c['quantity']}.00"]
+        hello.append(a)
+    print(hello)
 
-    new_list = ''
-    count = 0
-    for i in list_of_product:
-        count += 1
-        new_list += str(count)+') '
-        new_list += str(i)
-        new_list += "\n"
-    print(new_list)
+    headers = ['Book', 'Quantity', 'Unit Price', 'Price']
+
+    new_list = tabulate(hello, headers=headers, tablefmt='orgtbl')
 
     total_price = 0
     for i in range(0, len(cart)):
@@ -58,11 +57,13 @@ We will contact you after few day for the delivery.\n\
 \n\
 Your ordered books:\n\
 {new_list}\n\
-Your total amount is Rs.{total_price}.00 .Keep Shopping :)',
+\n\
+Your total amount is Rs.{total_price}.00.\nKeep Shopping :)',
             'jameskulu55@gmail.com',
             [f'{request.user.email}'],
             fail_silently=True,
         )
+
         carts.clear_cart()
         messages.success(
             request, 'Your order has been placed successfuly. Please check your email for the confirmation.')

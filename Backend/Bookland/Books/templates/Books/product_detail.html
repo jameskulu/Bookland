@@ -60,7 +60,8 @@
       {% else %}
       <form method="POST">
         {% csrf_token %}
-        {% render_field form.content class="" placeholder="Please login to write a comment" autocomplete="off" %}
+        <input type="text" autocomplete="off" disabled placeholder="Please login to write a comment">
+
         <button disabled>Comment</button>
       </form>
       {% endif %}

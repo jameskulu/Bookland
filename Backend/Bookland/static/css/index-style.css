@@ -1885,6 +1885,9 @@ font-size: 25px;
   border:0.5px solid var(--description-color);
   border-radius: 40px;
 }
+.product-comments .comment input::placeholder{
+  color: var(--heading-color);
+}
 .product-comments .comment button{
   width: 200px;
   padding: 15px 30px;
@@ -2096,9 +2099,6 @@ font-size: 25px;
 .billingdiv .billing h3{
   font-size: 25px;
 	margin:2% 2% 30px 2%;
-}
-.billingdiv .billing input{
-  
 }
 .billingdiv .billing .BD2::placeholder{
   color: var(--description-color);
@@ -2565,6 +2565,16 @@ section {
   max-width: 255px;
   min-height: 1px;
   margin: 0;
+}
+.sidebar a{
+  color:var(--heading-color);
+  text-decoration: none;
+}
+.sidebar a:hover{
+  color:var(--main-color);
+}
+.sidebar ul li{
+  list-style: none;
 }
 .head {
   line-height: 50px;
