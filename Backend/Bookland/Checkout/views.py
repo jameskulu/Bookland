@@ -33,7 +33,7 @@ def checkout(request):
         city = request.POST['city']
         country = request.POST['country']
 
-        c = CustomerLocation.objects.create(
+        c, created = CustomerLocation.objects.get_or_create(
             customer=request.user,
             company=company,
             street_address=street_address,

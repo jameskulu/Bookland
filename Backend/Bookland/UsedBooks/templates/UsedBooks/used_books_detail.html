@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Bookland - Used Books Detail {% endblock %}
+{% block title %}Bookland - {{products.title}} {% endblock %}
 
 {% load humanize %}
 {% load widget_tweaks %}
 {% block content %}
 
-
-<!-- Second Hand section -->
-
-
 <div class="details">
   <h1>Product Details</h1>
   <p>Used Books - Details</p>
 </div>
-
-
 
 <div class="product-detail-page">
   <div class="picture-details">
@@ -37,10 +31,7 @@
           <p><b>Phone</b> : {{ products.user.phone }}</p>
         </div>
       </div>
-
-
     </div>
-
   </div>
   <div class="product-description">
     <div class="product-description-header">
@@ -49,7 +40,6 @@
     <div class="describe">
       <p>{{ products.description }}</p>
     </div>
-
   </div>
   <div class="product-comments">
     <div class="product-comments-header">
@@ -87,15 +77,12 @@
             </div>
           </div>
         </div>
-
-
         {% endfor %}
+
         {% else %}
         <h1 style="margin-top: 10px;">No comments available. Be the first one to comment.</h1>
         {% endif %}
       </div>
-
-
     </div>
   </div>
 </div>

@@ -18,33 +18,9 @@ h1,h3{
 span{
   font-family: 'Roboto', sans-serif;
 }
-/* html{
+html{
   scroll-behavior: smooth;
-  --bg-color:#fff;
-  --white-color:#000;
-  --secondary-bg-color:#F1F6F7;
-  --main-color:#3C5898;
-  --description-color:#777777;
-  --wall-color:#d4d8e8;
-  --login-bg-color:#F1F6F7;
-  --heading-color:#222222;
-  --footer-color:#29487D;
-  --footer-header:#fff;
-  --footer-para:#d4d8e8;
 }
-html[data-theme='dark']{
-  --bg-color:#202020;
-  --white-color:#fff;
-  --secondary-bg-color:#FFFFFF;
-  --main-color:#3C5898;
-  --description-color:#AAA5A0;
-  --wall-color:#3b3b3b;
-  --login-bg-color:#3b3b3b;
-  --heading-color:#FFFFF1;
-  --footer-color:#2b2a2a;
-  --footer-header:#fff;
-  --footer-para:#AAA5A0;
-} */
 
 :root{
   --bg-color:#fff;
@@ -58,7 +34,6 @@ html[data-theme='dark']{
   --footer-color:#29487D;
   --footer-header:#fff;
   --footer-para:#d4d8e8;
-  /* font-family: 'Roboto', sans-serif; */
 }
 
 .darkmode{
@@ -288,6 +263,16 @@ main{
 .header .nav-bar-icon:hover{
   opacity: 0.5;
 }
+.shooping-cart-icon-div a{
+  text-decoration: none;
+}
+.shooping-cart-icon-div span{
+  font-size: 11px;
+  border-radius: 50%;
+  padding: 1px 3px;
+  background-color: var(--main-color);
+  color: var(--footer-header);
+} 
 
 /* Dropdown */
 .dropdown-link,.dropdown-link2{

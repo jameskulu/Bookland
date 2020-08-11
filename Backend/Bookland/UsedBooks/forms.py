@@ -8,18 +8,13 @@ class CommentForm(forms.ModelForm):
         fields = ['content', ]
 
 
-# choices = UsedSubCategory.objects.all().values_list('name', 'name')
-
-
 class UsedProductForm(forms.ModelForm):
-    # subcategory = forms.Select(choices=choices)
+    image = forms.ImageField(required=True, widget=forms.TextInput(attrs={
+        'accept': "image/x-png,image/gif,image/jpeg"
+    })
+    )
 
     class Meta:
         model = UsedProduct
         fields = ['title', 'author', 'price',
                   'description', 'image']
-
-    def __init__(self, request, *args, **kwargs):
-        super(UsedProductForm, self).__init__(*args, **kwargs)
-        self.fields['subcategory'] = forms.CharField(
-            label='', max_length=100, initial=request.session['value'])

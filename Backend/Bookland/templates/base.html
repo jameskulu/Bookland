@@ -54,9 +54,16 @@
         <div class="search-cart">
           <span title="Light / Dark Mode Toggle"><input type="checkbox" name='theme' id="switch" /><label
               for="switch">Toggle</label></span>
-          <!-- <button id="dark-mode-toggle" class="dark-mode-toggle">hello</button> -->
           <span class="search-icon"><i class="fal fa-search"></i></span>
-          <a href="{% url 'cart-detail' %}"><i class="fal fa-shopping-cart"></i></a>
+          <div class="shooping-cart-icon-div">
+            <a href="{% url 'cart-detail' %}">
+              <i class="fal fa-shopping-cart"></i>
+              {% if not cart|length == 0 %}
+              <span>{{cart|length}}</span>
+              {% endif %}
+
+            </a>
+          </div>
         </div>
         <div class="login-signup-nav">
 
@@ -70,7 +77,7 @@
               <li><a href="{% url 'favrioute-list' %}">My Wishlist</a></li>
               <hr style="width: 120px;">
               <li><a href="{% url 'category-form' %}">Post Your Book</a></li>
-              <li><a href="{% url 'listed-books' %}">My Listed Items</a></li>
+              <li><a href="{% url 'listed-books' %}">My Listed Books</a></li>
               <hr style="width: 120px;">
               <li><a href="/accounts/logout/?next={{request.path}}">Log Out</a></li>
             </ul>
@@ -140,7 +147,6 @@
             <div class="phone-number-desc">
               <p>Phone number:</p>
               <span>+977 9843123845</span>
-              <!-- <span>+977 9847653726</span> -->
             </div>
           </div>
           <div class="email">

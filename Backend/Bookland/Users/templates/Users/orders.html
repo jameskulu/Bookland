@@ -15,7 +15,7 @@
       <i style=" font-size: 25px;
       margin-bottom: 10px;" class="fal fa-book-alt hey"></i>
       <p>You have not ordered any books.</p>
-      <span>Buy some books and they will show here.</span>
+      <span>Order some books and they will show here.</span>
       <a href="{% url 'home' %}"><button>Continue Shopping</button></a>
     </div>
     {% else %}
@@ -30,7 +30,7 @@
             <a href="{% url 'product-detail' order.product.id %}">
               <h3>{{ order.product|truncatechars:25 }}</h3>
             </a>
-            <p><b>Price</b> : Rs. {{ order.product.price }}.00</p>
+            <p><b>Unit Price</b> : Rs. {{ order.product.price }}.00</p>
             <p><b>Quantity</b> : {{ order.quantity }}</p>
             <p><b>Ordered Date</b> : {{ order.ordered_date }}</p>
           </div>
