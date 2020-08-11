@@ -266,12 +266,18 @@ main{
 .shooping-cart-icon-div a{
   text-decoration: none;
 }
+.shooping-cart-icon-div {
+  position: relative;
+}
 .shooping-cart-icon-div span{
   font-size: 11px;
   border-radius: 50%;
-  padding: 1px 3px;
+  padding: 3px 6px;
   background-color: var(--main-color);
   color: var(--footer-header);
+  position: absolute;
+  top: -11px;
+  right: -16px;
 } 
 
 /* Dropdown */
@@ -2543,7 +2549,7 @@ section {
   padding-right: 15px;
   padding-left: 15px;
   margin: 0;
-  height: 100%;
+  height: 900px;
 }
 .sidebar {
   width: 100%;
