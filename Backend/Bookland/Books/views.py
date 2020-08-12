@@ -122,6 +122,10 @@ def categoryView(request, slug):
         'subcategories': subcategories,
         'maincategorys': maincategorys,
         'page_obj': post_list,
+        'subcategory': subcategory,
+        'name': name,
+        'minvalue': minvalue,
+        'maxvalue': maxvalue,
     }
 
     return render(request, 'Books/category.html', context)

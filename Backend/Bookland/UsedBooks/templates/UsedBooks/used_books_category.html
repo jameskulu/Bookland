@@ -63,9 +63,9 @@
                         <p>Price : $<span id="value"></span></p> -->
 
             <span class="labelprice" for="">Min Price :</span><br>
-            <input type="number" name="minvalue" id=""><br>
+            <input type="number" name="minvalue" id="" value="{{ minvalue }}"><br>
             <span class="labelprice" for="">Max Price :</span><br>
-            <input type="number" name="maxvalue">
+            <input type="number" name="maxvalue" value="{{ maxvalue }}">
 
           </div>
 
@@ -82,7 +82,7 @@
             <div class="srch">
 
 
-              <input name='name' type="text" placeholder="Search">
+              <input name='name' type="text" placeholder="Search" {% if name != None %} value="{{ name }}" {% endif %}>
               <div class="srchbtn">
                 <button>
                   <i class="fa fa-search" aria-hidden="true"></i>
