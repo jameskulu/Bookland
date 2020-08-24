@@ -14,7 +14,7 @@
   <form action="{% url 'search' %}">
     <div class="wrapper-search">
 
-      <input required name='q' type="text" class="input" placeholder="Search for books, author..">
+      <input required name='q' value="{{ q }}" type=" text" class="input" placeholder="Search for books, author..">
 
       <div class="searchbtn">
         <button style="background: transparent; border:none;">

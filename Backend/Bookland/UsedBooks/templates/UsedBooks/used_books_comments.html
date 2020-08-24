@@ -1,0 +1,39 @@
+{% load humanize %}
+{% load widget_tweaks %}
+
+{% if user.is_authenticated %}
+<form method="POST" class='usedcomment-form-ajax'>
+  {% csrf_token %}
+  {% render_field form.content class="" placeholder="Write a comment.." autocomplete="off" %}
+  <button>Comment</button>
+</form>
+{% else %}
+<form method="POST" class='usedcomment-form-ajax'>
+  {% csrf_token %}
+  {% render_field form.content class="" placeholder="Please login to write a comment" autocomplete="off" %}
+  <button disabled>Comment</button>
+</form>
+{% endif %}
+
+<div class="commented-section">
+  {% if comments %}
+  {% for comment in comments %}
+
+  <div class="single-commented-section">
+    <div class="question">
+      <div class="question-person">
+        <img src="{{ comment.user.profile.image.url }}" alt="{{ comment.user.username }}">
+        <span>{{ comment.content }}</span>
+      </div>
+      <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
+        {{ comment.time_stamp|naturaltime }}</span>
+      <div class="answer">
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% else %}
+  <h1 style="margin-top: 10px;">No comments available. Be the first one to comment.</h1>
+  {% endif %}
+</div>

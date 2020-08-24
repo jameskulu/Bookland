@@ -44,12 +44,12 @@
           <div class="cate-content">
             <form method='GET'>
               <ul>
-                {% for subcategory in usedsubcategories  %}
+                {% for subcat in usedsubcategories  %}
                 <li class="cate-list">
-                  <input id="{{ subcategory }}" value="{{ subcategory }}" class="radiobtn" type="radio"
-                    name="subcategory">
-                  <label for="{{ subcategory }}">{{ subcategory }}
-                    ({{subcategory.usedproduct_set.count}})</label>
+                  <input id="{{ subcat }}" value="{{ subcat }}" class="radiobtn" type="radio" name="subcategory"
+                    {% if subcat.name == subcategory %} checked {% endif %}>
+                  <label for="{{ subcat }}">{{ subcat }}
+                    ({{subcat.usedproduct_set.count}})</label>
                 </li>
                 {% endfor %}
               </ul>

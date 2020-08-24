@@ -45,46 +45,34 @@
     <div class="product-comments-header">
       <h1>Comments</h1>
     </div>
-    <div class="comment">
+    <div class="comment" id='used-comment'>
 
-      {% if user.is_authenticated %}
-      <form method="POST">
-        {% csrf_token %}
-        {% render_field form.content class="" placeholder="Write a comment.." autocomplete="off" %}
-        <button>Comment</button>
-      </form>
-      {% else %}
-      <form method="POST">
-        {% csrf_token %}
-        {% render_field form.content class="" placeholder="Please login to write a comment" autocomplete="off" %}
-        <button disabled>Comment</button>
-      </form>
-      {% endif %}
+      {% include 'UsedBooks/used_books_comments.html' %}
 
-      <div class="commented-section">
-        {% if comments %}
-        {% for comment in comments %}
 
-        <div class="single-commented-section">
-          <div class="question">
-            <div class="question-person">
-              <img src="{{ comment.user.profile.image.url }}" alt="{{ comment.user.username }}">
-              <span>{{ comment.content }}</span>
-            </div>
-            <span class="commentor">{{ comment.user.first_name }} {{ comment.user.last_name }} -
-              {{ comment.time_stamp|naturaltime }}</span>
-            <div class="answer">
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-        {% else %}
-        <h1 style="margin-top: 10px;">No comments available. Be the first one to comment.</h1>
-        {% endif %}
-      </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  $(document).ready(function (event) {
+    $(document).on('submit', '.usedcomment-form-ajax', function (event) {
+      event.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+          $('#used-comment').html(response['form'])
+        },
+        error: function (rs, e) {
+          console.log(rs.responseText);
+        }
+      })
+    })
+  })
+</script>
 
 {% endblock %}

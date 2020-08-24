@@ -9,6 +9,8 @@ from django.views.generic import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 
 def used_books(request):
@@ -42,6 +44,10 @@ def used_books_detail(request, pk):
         'comments': comments,
         'form': form,
     }
+    if request.is_ajax():
+        html = render_to_string('UsedBooks/used_books_comments.html',
+                                context, request=request)
+        return JsonResponse({'form': html})
     return render(request, 'UsedBooks/used_books_detail.html', context)
 
 
@@ -121,6 +127,7 @@ def used_categoryView(request, slug):
         'name': name,
         'minvalue': minvalue,
         'maxvalue': maxvalue,
+        'subcategory': subcategory,
     }
 
     return render(request, 'UsedBooks/used_books_category.html', context)

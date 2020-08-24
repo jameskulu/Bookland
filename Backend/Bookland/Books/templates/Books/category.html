@@ -48,7 +48,7 @@
                                 {% for subcat in subcategories  %}
                                 <li class="cate-list">
                                     <input id="{{ subcat }}" value="{{ subcat }}" class="radiobtn" type="radio"
-                                        name="subcategory">
+                                        name="subcategory" {% if subcat.name == subcategory %} checked {% endif %}>
                                     <label for="{{ subcat }}">{{ subcat }}
                                         ({{subcat.product_set.count}})</label>
                                 </li>
