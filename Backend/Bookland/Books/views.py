@@ -169,5 +169,5 @@ def search(request):
     return render(request, template_name, context)
 
 
-def error_404_view(request, exception):
-    return render(request, 'Books/404.html')
+# def error_404_view(request, exception):
+#     return render(request, 'Books/404.html')
